@@ -1,11 +1,11 @@
 import React from "react";
-import { Github, Linkedin, Twitter, Mail } from "lucide-react";
+import { Github, Linkedin, Instagram, Reddit } from "lucide-react";
 
 const socialLinks = [
   { name: "GitHub", icon: Github, url: "#" },
   { name: "LinkedIn", icon: Linkedin, url: "#" },
-  { name: "Twitter", icon: Twitter, url: "#" },
-  { name: "Email", icon: Mail, url: "#" },
+  { name: "Instagram", icon: Instagram, url: "#" },
+  { name: "Reddit", icon: Reddit, url: "#" },
 ];
 
 const SocialMediaSection = () => {
