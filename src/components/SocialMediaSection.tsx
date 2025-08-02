@@ -1,11 +1,12 @@
 import React from "react";
-import { Github, Linkedin, Mail, Link } from "lucide-react"; // Mengganti Instagram dan Reddit dengan Mail dan Link
+import { Github, Linkedin, Mail, Link, Whatsapp } from "lucide-react"; // Menambahkan Whatsapp
 
 const socialLinks = [
   { name: "GitHub", icon: Github, url: "#" },
   { name: "LinkedIn", icon: Linkedin, url: "#" },
-  { name: "Instagram (Placeholder)", icon: Mail, url: "#" }, // Menggunakan Mail sebagai placeholder
-  { name: "Reddit (Placeholder)", icon: Link, url: "#" },   // Menggunakan Link sebagai placeholder
+  { name: "Instagram (Placeholder)", icon: Mail, url: "#" },
+  { name: "Reddit (Placeholder)", icon: Link, url: "#" },
+  { name: "WhatsApp", icon: Whatsapp, url: "https://wa.me/yourphonenumber" }, // Tambahkan nomor telepon Anda di sini
 ];
 
 const SocialMediaSection = () => {
