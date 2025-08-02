@@ -5,7 +5,7 @@ import ProjectSection from "@/components/ProjectSection";
 import SocialMediaSection from "@/components/SocialMediaSection";
 import ContactSection from "@/components/ContactSection";
 import Navbar from "@/components/Navbar"; // Import Navbar
-import { MadeWithDyad } from "@/components/made-with-dyad";
+// import { MadeWithDyad } from "@/components/made-with-dyad"; // Dihapus
 
 const Index = () => {
   return (
@@ -23,7 +23,7 @@ const Index = () => {
       <div id="contact">
         <ContactSection />
       </div>
-      <MadeWithDyad />
+      {/* <MadeWithDyad /> Dihapus */}
     </div>
   );
 };
