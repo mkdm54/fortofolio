@@ -5,7 +5,23 @@ const HeroSection = () => {
   return (
     <section className="w-full bg-portfolio-yellow py-16 md:py-24 lg:py-32">
       <div className="container mx-auto px-4">
-        <div className="bg-portfolio-teal border-4 border-portfolio-black rounded-lg p-8 md:p-12 lg:p-16 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] flex flex-col items-center text-center">
+        <div className="relative bg-portfolio-teal border-4 border-portfolio-black rounded-lg p-8 md:p-12 lg:p-16 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] flex flex-col items-center text-center">
+          {/* Top Left Pink Circles */}
+          <div className="absolute top-4 left-4 hidden md:flex space-x-1">
+            <div className="w-4 h-4 bg-portfolio-pink rounded-full border-2 border-portfolio-black"></div>
+            <div className="w-4 h-4 bg-portfolio-pink rounded-full border-2 border-portfolio-black"></div>
+            <div className="w-4 h-4 bg-portfolio-pink rounded-full border-2 border-portfolio-black"></div>
+          </div>
+
+          {/* Dotted pattern on left */}
+          <div className="absolute top-1/4 left-8 hidden md:block">
+            <div className="grid grid-cols-3 gap-1">
+              {[...Array(9)].map((_, i) => (
+                <div key={i} className="w-2 h-2 bg-portfolio-black rounded-full"></div>
+              ))}
+            </div>
+          </div>
+
           {/* Profile Image */}
           <img
             src="/placeholder.svg" // Ganti dengan URL foto profil Anda
