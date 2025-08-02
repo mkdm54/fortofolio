@@ -1,12 +1,12 @@
 import React from "react";
-import { Github, Linkedin, Mail, Link, Whatsapp } from "lucide-react"; // Menambahkan Whatsapp
+import { Github, Linkedin, Mail, Link, MessageSquare } from "lucide-react"; // Mengganti Whatsapp dengan MessageSquare
 
 const socialLinks = [
   { name: "GitHub", icon: Github, url: "#" },
   { name: "LinkedIn", icon: Linkedin, url: "#" },
   { name: "Instagram (Placeholder)", icon: Mail, url: "#" },
   { name: "Reddit (Placeholder)", icon: Link, url: "#" },
-  { name: "WhatsApp", icon: Whatsapp, url: "https://wa.me/yourphonenumber" }, // Tambahkan nomor telepon Anda di sini
+  { name: "WhatsApp", icon: MessageSquare, url: "https://wa.me/yourphonenumber" }, // Menggunakan MessageSquare sebagai placeholder
 ];
 
 const SocialMediaSection = () => {
