@@ -62,6 +62,11 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        // Custom colors for the portfolio theme
+        "portfolio-yellow": "#FFEB00",
+        "portfolio-teal": "#00C8C8",
+        "portfolio-pink": "#FF00FF",
+        "portfolio-black": "#000000", // Explicitly define black for borders
       },
       borderRadius: {
         lg: "var(--radius)",
