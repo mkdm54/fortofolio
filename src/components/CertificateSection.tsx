@@ -10,7 +10,7 @@ const CertificateSection = () => {
           My Certificates
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {[1, 2, 3].map((i) => (
+          {[1, 2].map((i) => ( {/* Mengubah dari [1, 2, 3] menjadi [1, 2] */}
             <Card
               key={i}
               className="border-4 border-portfolio-black rounded-lg overflow-hidden shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] bg-white"
