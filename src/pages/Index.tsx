@@ -4,17 +4,25 @@ import TechStackSection from "@/components/TechStackSection";
 import ProjectSection from "@/components/ProjectSection";
 import SocialMediaSection from "@/components/SocialMediaSection";
 import ContactSection from "@/components/ContactSection";
+import Navbar from "@/components/Navbar"; // Import Navbar
 import { MadeWithDyad } from "@/components/made-with-dyad";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-portfolio-yellow">
-      <HeroSection />
+      <Navbar /> {/* Render Navbar di bagian atas */}
+      <div id="about">
+        <HeroSection />
+      </div>
       <CertificateSection />
       <TechStackSection />
-      <ProjectSection />
+      <div id="projects">
+        <ProjectSection />
+      </div>
       <SocialMediaSection />
-      <ContactSection />
+      <div id="contact">
+        <ContactSection />
+      </div>
       <MadeWithDyad />
     </div>
   );
