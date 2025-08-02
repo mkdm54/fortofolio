@@ -1,11 +1,11 @@
 import React from "react";
-import { Github, Linkedin, Instagram, Reddit } from "lucide-react";
+import { Github, Linkedin, Mail, Link } from "lucide-react"; // Mengganti Instagram dan Reddit dengan Mail dan Link
 
 const socialLinks = [
   { name: "GitHub", icon: Github, url: "#" },
   { name: "LinkedIn", icon: Linkedin, url: "#" },
-  { name: "Instagram", icon: Instagram, url: "#" },
-  { name: "Reddit", icon: Reddit, url: "#" },
+  { name: "Instagram (Placeholder)", icon: Mail, url: "#" }, // Menggunakan Mail sebagai placeholder
+  { name: "Reddit (Placeholder)", icon: Link, url: "#" },   // Menggunakan Link sebagai placeholder
 ];
 
 const SocialMediaSection = () => {
