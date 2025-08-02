@@ -37,12 +37,7 @@ const HeroSection = () => {
             Halo! Saya adalah seorang pengembang web yang bersemangat dengan fokus pada pembuatan pengalaman digital yang menarik dan fungsional. Saya memiliki keahlian dalam pengembangan frontend dan backend, serta desain UI/UX. Saya selalu mencari tantangan baru dan kesempatan untuk belajar dan berkembang.
           </p>
           {/* Call to Action Button */}
-          <Button
-            className="bg-white text-portfolio-black border-4 border-portfolio-black rounded-full px-8 py-6 text-lg font-bold hover:bg-gray-100 transition-colors shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
-            onClick={() => console.log("Download CV clicked")}
-          >
-            Download CV
-          </Button>
+          {/* Tombol Download CV dihapus */}
         </div>
       </div>
     </section>
