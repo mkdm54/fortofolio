@@ -63,15 +63,15 @@ const HeroSection = () => {
               </div>
             </div>
 
-            {/* Abstract Shapes and Cursor */}
-            <div className="absolute -bottom-10 -right-10 lg:bottom-auto lg:right-auto lg:top-1/2 lg:-translate-y-1/2 lg:mr-16">
+            {/* Abstract Shapes and Cursor - Hidden on small screens */}
+            <div className="absolute hidden sm:block -bottom-10 -right-10 lg:bottom-auto lg:right-auto lg:top-1/2 lg:-translate-y-1/2 lg:mr-16">
               <div className="w-24 h-24 border-4 border-portfolio-black rotate-45 bg-portfolio-pink shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"></div>
             </div>
-            <div className="absolute -top-10 right-10 lg:top-auto lg:right-auto lg:bottom-1/4 lg:ml-16">
+            <div className="absolute hidden sm:block -top-10 right-10 lg:top-auto lg:right-auto lg:bottom-1/4 lg:ml-16">
               <div className="w-16 h-16 border-4 border-portfolio-black bg-portfolio-pink shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"></div>
             </div>
             {/* Cursor/Triangle shape */}
-            <div className="absolute bottom-10 right-20 lg:bottom-auto lg:right-auto lg:top-3/4 lg:mr-24">
+            <div className="absolute hidden sm:block bottom-10 right-20 lg:bottom-auto lg:right-auto lg:top-3/4 lg:mr-24">
               <MousePointer2 className="w-12 h-12 text-portfolio-pink rotate-45" />
             </div>
           </div>
