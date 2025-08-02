@@ -24,13 +24,13 @@ const HeroSection = () => {
 
           {/* Profile Image */}
           <img
-            src="/placeholder.svg" // Ganti dengan URL foto profil Anda
-            alt="Foto Profil"
+            src="/profile.jpg" // Mengganti dengan URL foto profil Anda
+            alt="Foto Profil Makdum Ibrohim"
             className="w-48 h-48 md:w-64 md:h-64 rounded-full object-cover border-4 border-portfolio-black mb-8 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
           />
           {/* Name */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-portfolio-black leading-tight mb-4">
-            [Nama Anda Di Sini]
+            Makdum Ibrohim
           </h1>
           {/* About Me Description */}
           <p className="text-lg md:text-xl text-portfolio-black max-w-3xl mb-8">
