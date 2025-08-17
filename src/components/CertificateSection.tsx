@@ -8,8 +8,8 @@ const certificates = [
     title: "Belajar Dasar Pemrograman JavaScript",
     description:
       "Sertifikat kelulusan dari Dicoding Indonesia untuk kelas Belajar Dasar Pemrograman JavaScript.",
-    image: "/sertifikat_javascript.png",
-    link: "https://www.dicoding.com/certificates/ERZR242LQPYV",
+    image: "/sertifikat_dicoding_js_dasar.png",
+    link: "https://github.com/mkdm54/fortofolio/raw/main/public/sertifikat_dicoding_js_dasar.png",
   },
   {
     id: 2,
@@ -17,7 +17,7 @@ const certificates = [
     description:
       "Sertifikat partisipasi pada grup 'Ingin Menjadi Programmer Handal Namun Enggan Ngoding' dari IMPHNEN.",
     image: "/sertifikat_kompetensi_kemalasan.jpg",
-    link: "#", // Jika ada link, bisa ditambahkan di sini
+    link: "https://raw.githubusercontent.com/mkdm54/fortofolio/main/public/sertifikat_kompetensi_kemalasan.jpg?token=GHSAT0AAAAAADG5WEE2AZ77LEENHVSEEJIO2FBMRKQ", // Jika ada link, bisa ditambahkan di sini
   },
 ];
 
