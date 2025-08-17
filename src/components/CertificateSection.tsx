@@ -27,6 +27,14 @@ const certificates = [
     image: "/sertifikat_belajar_dasar_pemrograman_web.png",
     link: "https://raw.githubusercontent.com/mkdm54/fortofolio/main/public/sertifikat_belajar_dasar_pemrograman_web.png",
   },
+  {
+    id: 4,
+    title: "Belajar Membuat Front-End Web untuk Pemula",
+    description:
+      "Sertifikat kelulusan dari Dicoding Indonesia untuk kelas Belajar Membuat Front-End Web untuk Pemula.",
+    image: "/sertifikat_belajar_membuat_front-end_web_untuk_pemula.png",
+    link: "https://raw.githubusercontent.com/mkdm54/fortofolio/main/public/sertifikat_belajar_membuat_front-end_web_untuk_pemula.png",
+  },
 ];
 
 const CertificateSection = () => {
