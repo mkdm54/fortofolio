@@ -19,6 +19,14 @@ const certificates = [
     image: "/sertifikat_kompetensi_kemalasan.jpg",
     link: "https://raw.githubusercontent.com/mkdm54/fortofolio/main/public/sertifikat_kompetensi_kemalasan.jpg?token=GHSAT0AAAAAADG5WEE2AZ77LEENHVSEEJIO2FBMRKQ", // Jika ada link, bisa ditambahkan di sini
   },
+  {
+    id: 3,
+    title: "Belajar Dasar Pemrograman Web",
+    description:
+      "Sertifikat kelulusan untuk kelas Belajar Dasar Pemrograman Web.",
+    image: "/sertifikat_belajar_dasar_pemrograman_web.png",
+    link: "https://raw.githubusercontent.com/mkdm54/fortofolio/main/public/sertifikat_belajar_dasar_pemrograman_web.png",
+  },
 ];
 
 const CertificateSection = () => {
