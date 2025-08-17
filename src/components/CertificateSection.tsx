@@ -9,7 +9,7 @@ const certificates = [
     description:
       "Sertifikat kelulusan dari Dicoding Indonesia untuk kelas Belajar Dasar Pemrograman JavaScript.",
     image: "/sertifikat_dicoding_js_dasar.png",
-    link: "https://github.com/mkdm54/fortofolio/raw/main/public/sertifikat_dicoding_js_dasar.png",
+    link: "https://raw.githubusercontent.com/mkdm54/fortofolio/main/public/sertifikat_dicoding_js_dasar.png",
   },
   {
     id: 2,
