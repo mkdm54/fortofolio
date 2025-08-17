@@ -17,7 +17,7 @@ const certificates = [
     description:
       "Sertifikat partisipasi pada grup 'Ingin Menjadi Programmer Handal Namun Enggan Ngoding' dari IMPHNEN.",
     image: "/sertifikat_kompetensi_kemalasan.jpg",
-    link: "https://raw.githubusercontent.com/mkdm54/fortofolio/main/public/sertifikat_kompetensi_kemalasan.jpg?token=GHSAT0AAAAAADG5WEE2AZ77LEENHVSEEJIO2FBMRKQ", // Jika ada link, bisa ditambahkan di sini
+    link: "https://raw.githubusercontent.com/mkdm54/fortofolio/main/public/sertifikat_kompetensi_kemalasan.jpg",
   },
   {
     id: 3,
