@@ -80,6 +80,7 @@ export default {
         "linkedin-blue": "#0077B5", // Warna biru LinkedIn
         "instagram-purple": "#E1306C", // Warna ungu Instagram
         "github-black": "#181717", // Warna hitam GitHub
+        "threads-black": "#000000", // Warna hitam Threads
       },
       borderRadius: {
         lg: "var(--radius)",

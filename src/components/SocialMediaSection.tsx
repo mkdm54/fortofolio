@@ -37,6 +37,13 @@ const socialLinks = [
     bgColor: "bg-whatsapp-green", // Menggunakan warna kustom dari tailwind.config.ts
     textColor: "text-white", // Teks putih untuk latar belakang gelap
   },
+  {
+    name: "Threads",
+    svgPath: "/threads.svg",
+    url: "https://www.threads.com/@mkdmibrhm_",
+    bgColor: "bg-threads-black", // Menggunakan warna kustom dari tailwind.config.ts
+    textColor: "text-white", // Teks putih untuk latar belakang gelap
+  },
 ];
 
 const SocialMediaSection = () => {
