@@ -93,7 +93,6 @@ const Calculator = () => {
     }
 
     try {
-      // eslint-disable-next-line no-eval
       const result = eval(fullEvalString);
       setExpression(fullEvalString + " =");
       setCurrentInput(result.toString());
