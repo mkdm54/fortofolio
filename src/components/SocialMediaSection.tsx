@@ -1,37 +1,42 @@
 import React from "react";
-import { Github, Linkedin } from "lucide-react"; // Hanya menyisakan Github dan Linkedin
+import { Github, Linkedin } from "lucide-react";
 
 const socialLinks = [
   {
     name: "GitHub",
     icon: Github,
     url: "https://github.com/mkdm54",
-    colorClass: "bg-github-black hover:bg-github-black/80",
-  }, // Menambahkan colorClass
+    bgColor: "bg-github-black", // Menggunakan warna kustom dari tailwind.config.ts
+    textColor: "text-white", // Teks putih untuk latar belakang gelap
+  },
   {
     name: "LinkedIn",
     icon: Linkedin,
     url: "https://www.linkedin.com/in/makdum-ibrohim-1097532a1/",
-    colorClass: "bg-linkedin-blue hover:bg-linkedin-blue/80", // Menambahkan colorClass
+    bgColor: "bg-linkedin-blue", // Menggunakan warna kustom dari tailwind.config.ts
+    textColor: "text-white", // Teks putih untuk latar belakang gelap
   },
   {
     name: "Instagram",
     svgPath: "/instagram-167.svg",
     url: "https://www.instagram.com/mkdmibrhm_",
-    colorClass: "bg-instagram-purple hover:bg-instagram-purple/80", // Menambahkan colorClass
-  }, // Menggunakan svgPath
+    bgColor: "bg-instagram-purple", // Menggunakan warna kustom dari tailwind.config.ts
+    textColor: "text-white", // Teks putih untuk latar belakang gelap
+  },
   {
     name: "Reddit",
     svgPath: "/reddit.svg",
     url: "https://www.reddit.com/user/Difficult_Lie_8919/",
-    colorClass: "bg-reddit-orange hover:bg-reddit-orange/80", // Menambahkan colorClass
-  }, // Menggunakan svgPath
+    bgColor: "bg-reddit-orange", // Menggunakan warna kustom dari tailwind.config.ts
+    textColor: "text-white", // Teks putih untuk latar belakang gelap
+  },
   {
     name: "WhatsApp",
     svgPath: "/whatsapp.svg",
     url: "https://wa.me/+628932576797",
-    colorClass: "bg-whatsapp-green hover:bg-whatsapp-green/80", // Menambahkan colorClass
-  }, // Menggunakan svgPath
+    bgColor: "bg-whatsapp-green", // Menggunakan warna kustom dari tailwind.config.ts
+    textColor: "text-white", // Teks putih untuk latar belakang gelap
+  },
 ];
 
 const SocialMediaSection = () => {
@@ -43,28 +48,30 @@ const SocialMediaSection = () => {
         </h2>
         <div className="flex flex-wrap justify-center gap-6">
           {socialLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`flex flex-col items-center space-y-2 p-4 text-white rounded-lg border-4 border-portfolio-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-colors ${
-                link.colorClass ||
-                "bg-portfolio-teal hover:bg-portfolio-teal/80"
-              }`}
-            >
-              {link.icon ? (
-                <link.icon className="w-10 h-10" />
-              ) : (
-                <img
-                  src={link.svgPath}
-                  alt={link.name}
-                  className="w-10 h-10 text-white"
-                  style={{ filter: "invert(100%)" }}
-                /> // Menambahkan style filter untuk membuat SVG putih
-              )}
-              <span className="text-lg font-semibold">{link.name}</span>
-            </a>
+            <div key={link.name} className="relative w-36 h-36">
+              {" "}
+              {/* Container untuk efek 3D */}
+              {/* Elemen "bayangan" - ini adalah lapisan belakang putih dengan border hitam */}
+              <div className="absolute top-2 left-2 w-full h-full bg-white rounded-lg border-4 border-portfolio-black"></div>
+              {/* Kartu media sosial yang sebenarnya - ini akan bergerak saat di-hover */}
+              <a
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center space-y-2 p-4 ${link.bgColor} ${link.textColor} rounded-lg border-4 border-portfolio-black transition-transform duration-100 ease-out transform hover:translate-x-2 hover:translate-y-2`}
+              >
+                {link.icon ? (
+                  <link.icon className="w-10 h-10" /> // Ikon Lucide akan mewarisi warna teks
+                ) : (
+                  <img
+                    src={link.svgPath}
+                    alt={link.name}
+                    className="w-10 h-10"
+                  />
+                )}
+                <span className="text-lg font-semibold">{link.name}</span>
+              </a>
+            </div>
           ))}
         </div>
       </div>
