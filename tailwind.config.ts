@@ -78,6 +78,7 @@ export default {
         "whatsapp-green": "#25D366", // Warna hijau WhatsApp
         "reddit-orange": "#FF4500", // Warna oranye Reddit
         "linkedin-blue": "#0077B5", // Warna biru LinkedIn
+        "instagram-purple": "#E1306C", // Warna ungu Instagram
       },
       borderRadius: {
         lg: "var(--radius)",

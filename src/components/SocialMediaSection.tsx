@@ -13,6 +13,7 @@ const socialLinks = [
     name: "Instagram",
     svgPath: "/instagram-167.svg",
     url: "https://www.instagram.com/mkdmibrhm_",
+    colorClass: "bg-instagram-purple hover:bg-instagram-purple/80", // Menambahkan colorClass
   }, // Menggunakan svgPath
   {
     name: "Reddit",
