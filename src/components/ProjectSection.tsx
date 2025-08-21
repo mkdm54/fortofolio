@@ -23,11 +23,11 @@ const projects = [
   },
   {
     id: 3,
-    title: "Project Management Dashboard", // Judul placeholder
+    title: "easyPDF App",
     description:
-      "A web-based dashboard for managing projects, tasks, and team collaboration, built with modern React and UI components.", // Deskripsi placeholder
-    projectUrl: "https://github.com/your-username/project-gamma", // Tautan placeholder
-    image: "/project_gamma_screenshot.jpg", // Menambahkan gambar untuk Project Gamma
+      "A mobile-friendly application for managing PDF files, including image to PDF conversion, opening, and merging PDFs.",
+    projectUrl: "https://github.com/mkdm54/easyPDF-app",
+    image: "/easyPDF_app_screenshot.jpg",
   },
 ];
 
