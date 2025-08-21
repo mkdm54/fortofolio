@@ -11,6 +11,7 @@ const projects = [
     description:
       "A basic calculator built using React, leveraging modern web technologies and styling with Tailwind CSS.",
     routePath: "/projects/calculator", // Changed to routePath for internal React route
+    image: "/calculator_app_screenshot.jpg", // Menambahkan gambar untuk proyek kalkulator
   },
   {
     id: 2,
@@ -22,9 +23,11 @@ const projects = [
   },
   {
     id: 3,
-    title: "Project Gamma",
+    title: "Project Management Dashboard", // Judul placeholder
     description:
-      "A brief description of Project Gamma, highlighting its key features and technologies used.",
+      "A web-based dashboard for managing projects, tasks, and team collaboration, built with modern React and UI components.", // Deskripsi placeholder
+    projectUrl: "https://github.com/your-username/project-gamma", // Tautan placeholder
+    image: "/project_gamma_screenshot.jpg", // Menambahkan gambar untuk Project Gamma
   },
 ];
 
