@@ -2,7 +2,12 @@ import React from "react";
 import { Github, Linkedin } from "lucide-react"; // Hanya menyisakan Github dan Linkedin
 
 const socialLinks = [
-  { name: "GitHub", icon: Github, url: "https://github.com/mkdm54" },
+  {
+    name: "GitHub",
+    icon: Github,
+    url: "https://github.com/mkdm54",
+    colorClass: "bg-github-black hover:bg-github-black/80",
+  }, // Menambahkan colorClass
   {
     name: "LinkedIn",
     icon: Linkedin,

@@ -79,6 +79,7 @@ export default {
         "reddit-orange": "#FF4500", // Warna oranye Reddit
         "linkedin-blue": "#0077B5", // Warna biru LinkedIn
         "instagram-purple": "#E1306C", // Warna ungu Instagram
+        "github-black": "#181717", // Warna hitam GitHub
       },
       borderRadius: {
         lg: "var(--radius)",
