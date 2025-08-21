@@ -1,22 +1,27 @@
 import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Plus, Folder } from "lucide-react";
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
 
 const projects = [
   {
     id: 1,
-    title: "Project Alpha",
-    description: "A brief description of Project Alpha, highlighting its key features and technologies used.",
+    title: "Simple Calculator",
+    description:
+      "A basic calculator built using React, leveraging modern web technologies and styling with Tailwind CSS.",
+    routePath: "/projects/calculator", // Changed to routePath for internal React route
   },
   {
     id: 2,
     title: "Project Beta",
-    description: "A brief description of Project Beta, highlighting its key features and technologies used.",
+    description:
+      "A brief description of Project Beta, highlighting its key features and technologies used.",
   },
   {
     id: 3,
     title: "Project Gamma",
-    description: "A brief description of Project Gamma, highlighting its key features and technologies used.",
+    description:
+      "A brief description of Project Gamma, highlighting its key features and technologies used.",
   },
 ];
 
@@ -45,9 +50,17 @@ const ProjectSection = () => {
                 <CardTitle className="text-xl font-bold text-portfolio-black mb-2">
                   {project.title}
                 </CardTitle>
-                <p className="text-gray-700">
-                  {project.description}
-                </p>
+                <p className="text-gray-700 mb-4">{project.description}</p>
+                {project.routePath && (
+                  <p className="text-sm text-gray-500">
+                    <Link
+                      to={project.routePath}
+                      className="text-portfolio-pink hover:underline font-semibold"
+                    >
+                      View Project
+                    </Link>
+                  </p>
+                )}
               </CardContent>
             </Card>
           ))}

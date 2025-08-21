@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import tailwindcssAnimate from "tailwindcss-animate"; // Mengubah 'require' menjadi 'import'
 
 export default {
   darkMode: ["class"],
@@ -67,6 +68,13 @@ export default {
         "portfolio-teal": "#00C8C8",
         "portfolio-pink": "#FF00FF",
         "portfolio-black": "#000000", // Explicitly define black for borders
+        // New colors for calculator
+        "calc-dark-blue": "#2700d4",
+        "calc-purple": "#4A00E0",
+        "calc-deep-blue": "#160078",
+        "calc-cyan": "#00FFC8", // Adjusted from rgb(0, 255, 200)
+        "calc-red": "#FF0000", // Adjusted from rgb(255, 0, 0)
+        "calc-orange": "#FFA500", // Adjusted from orange
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -97,5 +105,5 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [tailwindcssAnimate], // Menggunakan modul yang diimpor
 } satisfies Config;
