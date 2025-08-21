@@ -68,6 +68,7 @@ export default {
         "portfolio-teal": "#00C8C8",
         "portfolio-pink": "#FF00FF",
         "portfolio-black": "#000000", // Explicitly define black for borders
+        "portfolio-red-pink": "#FF0062", // Warna kustom baru: RGB(255, 0, 98)
         // New colors for calculator
         "calc-dark-blue": "#2700d4",
         "calc-purple": "#4A00E0",
@@ -80,7 +81,7 @@ export default {
         "linkedin-blue": "#0077B5", // Warna biru LinkedIn
         "instagram-purple": "#E1306C", // Warna ungu Instagram
         "github-black": "#181717", // Warna hitam GitHub
-        "threads-black": "#000000", // Warna hitam Threads
+        "threads-black": "#000000", // Warna hitam untuk Threads (sesuai logo)
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -104,15 +105,15 @@ export default {
             height: "0",
           },
         },
-        "scroll-left": {
-          from: { transform: "translateX(0%)" },
-          to: { transform: "translateX(-50%)" },
-        },
+        // "scroll-left": { // Dihapus
+        //   from: { transform: "translateX(0%)" },
+        //   to: { transform: "translateX(-50%)" },
+        // },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "scroll-left": "scroll-left 30s linear infinite", // Durasi 30 detik, linear, tak terbatas
+        // "scroll-left": "scroll-left 30s linear infinite", // Dihapus
       },
     },
   },
