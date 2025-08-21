@@ -17,6 +17,7 @@ const socialLinks = [
     name: "Reddit",
     svgPath: "/reddit.svg",
     url: "https://www.reddit.com/user/Difficult_Lie_8919/",
+    colorClass: "bg-reddit-orange hover:bg-reddit-orange/80", // Menambahkan colorClass
   }, // Menggunakan svgPath
   {
     name: "WhatsApp",
