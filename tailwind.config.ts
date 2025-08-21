@@ -75,6 +75,7 @@ export default {
         "calc-cyan": "#00FFC8", // Adjusted from rgb(0, 255, 200)
         "calc-red": "#FF0000", // Adjusted from rgb(255, 0, 0)
         "calc-orange": "#FFA500", // Adjusted from orange
+        "whatsapp-green": "#25D366", // Warna hijau WhatsApp
       },
       borderRadius: {
         lg: "var(--radius)",
