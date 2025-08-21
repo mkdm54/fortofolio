@@ -2,6 +2,7 @@ import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Plus, Folder } from "lucide-react";
 import { Link } from "react-router-dom"; // Import Link from react-router-dom
+import { AspectRatio } from "@/components/ui/aspect-ratio"; // Import AspectRatio
 
 const projects = [
   {
@@ -13,9 +14,11 @@ const projects = [
   },
   {
     id: 2,
-    title: "Project Beta",
+    title: "Chatbot App",
     description:
-      "A brief description of Project Beta, highlighting its key features and technologies used.",
+      "A simple chatbot application that can respond to user queries, built with React and a focus on conversational UI.",
+    projectUrl: "https://github.com/mkdm54/chatbot_app", // Tautan ke repositori GitHub
+    image: "/chatbot_app_screenshot.jpg", // Menambahkan gambar untuk proyek chatbot
   },
   {
     id: 3,
@@ -39,19 +42,29 @@ const ProjectSection = () => {
               className="relative border-4 border-portfolio-black rounded-lg overflow-hidden shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] bg-white"
             >
               <CardHeader className="p-0">
-                <div className="relative w-full h-48 bg-portfolio-teal border-b-4 border-portfolio-black flex items-center justify-center">
-                  <Folder className="w-24 h-24 text-white" />
-                  <div className="absolute top-4 right-4 w-8 h-8 bg-portfolio-teal border-2 border-portfolio-black rounded-full flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                    <Plus className="w-5 h-5 text-white" />
-                  </div>
-                </div>
+                <AspectRatio ratio={16 / 9}>
+                  {project.image ? (
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="object-cover w-full h-full border-b-4 border-portfolio-black"
+                    />
+                  ) : (
+                    <div className="relative w-full h-full bg-portfolio-teal border-b-4 border-portfolio-black flex items-center justify-center">
+                      <Folder className="w-24 h-24 text-white" />
+                      <div className="absolute top-4 right-4 w-8 h-8 bg-portfolio-teal border-2 border-portfolio-black rounded-full flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                        <Plus className="w-5 h-5 text-white" />
+                      </div>
+                    </div>
+                  )}
+                </AspectRatio>
               </CardHeader>
               <CardContent className="p-6">
                 <CardTitle className="text-xl font-bold text-portfolio-black mb-2">
                   {project.title}
                 </CardTitle>
                 <p className="text-gray-700 mb-4">{project.description}</p>
-                {project.routePath && (
+                {project.routePath ? (
                   <p className="text-sm text-gray-500">
                     <Link
                       to={project.routePath}
@@ -60,7 +73,18 @@ const ProjectSection = () => {
                       View Project
                     </Link>
                   </p>
-                )}
+                ) : project.projectUrl ? (
+                  <p className="text-sm text-gray-500">
+                    <a
+                      href={project.projectUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-portfolio-pink hover:underline font-semibold"
+                    >
+                      View Project on GitHub
+                    </a>
+                  </p>
+                ) : null}
               </CardContent>
             </Card>
           ))}
