@@ -33,7 +33,7 @@ const socialLinks = [
   {
     name: "WhatsApp",
     svgPath: "/whatsapp.svg",
-    url: "https://wa.me/+628932576797",
+    url: "https://wa.me/+6285932576797",
     bgColor: "bg-whatsapp-green", // Menggunakan warna kustom dari tailwind.config.ts
     textColor: "text-white", // Teks putih untuk latar belakang gelap
   },
