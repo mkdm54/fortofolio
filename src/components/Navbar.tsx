@@ -1,7 +1,11 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
-import { Menu } from "lucide-react";
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+  SheetClose,
+} from "@/components/ui/sheet";
 
 const Navbar = () => {
   return (
@@ -10,16 +14,28 @@ const Navbar = () => {
         <a href="/" className="text-portfolio-black text-2xl font-extrabold">
           My Portfolio
         </a>
-        
+
         {/* Desktop Navigation */}
         <div className="hidden md:flex space-x-4">
-          <Button asChild variant="ghost" className="text-portfolio-black text-lg font-semibold hover:bg-portfolio-pink/20 hover:text-portfolio-black">
+          <Button
+            asChild
+            variant="ghost"
+            className="text-portfolio-black text-lg font-semibold hover:bg-portfolio-pink/20 hover:text-portfolio-black"
+          >
             <a href="#about">About</a>
           </Button>
-          <Button asChild variant="ghost" className="text-portfolio-black text-lg font-semibold hover:bg-portfolio-pink/20 hover:text-portfolio-black">
+          <Button
+            asChild
+            variant="ghost"
+            className="text-portfolio-black text-lg font-semibold hover:bg-portfolio-pink/20 hover:text-portfolio-black"
+          >
             <a href="#projects">Projects</a>
           </Button>
-          <Button asChild variant="ghost" className="text-portfolio-black text-lg font-semibold hover:bg-portfolio-pink/20 hover:text-portfolio-black">
+          <Button
+            asChild
+            variant="ghost"
+            className="text-portfolio-black text-lg font-semibold hover:bg-portfolio-pink/20 hover:text-portfolio-black"
+          >
             <a href="#contact">Contact</a>
           </Button>
         </div>
@@ -28,25 +44,49 @@ const Navbar = () => {
         <div className="md:hidden">
           <Sheet>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="text-portfolio-black">
-                <Menu className="h-6 w-6" />
+              <Button
+                variant="ghost"
+                size="icon"
+                className="text-portfolio-black"
+              >
+                {/* Menggunakan tag img untuk SVG dari file public */}
+                <img
+                  src="/menu-hambuger.svg"
+                  alt="Menu"
+                  className="h-8 w-8" // Menerapkan kelas Tailwind untuk ukuran
+                />
                 <span className="sr-only">Toggle navigation menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="bg-portfolio-teal border-l-4 border-portfolio-black p-6">
+            <SheetContent
+              side="right"
+              className="bg-portfolio-teal border-l-4 border-portfolio-black p-6"
+            >
               <div className="flex flex-col space-y-4 mt-8">
                 <SheetClose asChild>
-                  <Button asChild variant="ghost" className="text-portfolio-black text-xl font-semibold hover:bg-portfolio-pink/20 hover:text-portfolio-black w-full justify-start">
+                  <Button
+                    asChild
+                    variant="ghost"
+                    className="text-portfolio-black text-xl font-semibold hover:bg-portfolio-pink/20 hover:text-portfolio-black w-full justify-start"
+                  >
                     <a href="#about">About</a>
                   </Button>
                 </SheetClose>
                 <SheetClose asChild>
-                  <Button asChild variant="ghost" className="text-portfolio-black text-xl font-semibold hover:bg-portfolio-pink/20 hover:text-portfolio-black w-full justify-start">
+                  <Button
+                    asChild
+                    variant="ghost"
+                    className="text-portfolio-black text-xl font-semibold hover:bg-portfolio-pink/20 hover:text-portfolio-black w-full justify-start"
+                  >
                     <a href="#projects">Projects</a>
                   </Button>
                 </SheetClose>
                 <SheetClose asChild>
-                  <Button asChild variant="ghost" className="text-portfolio-black text-xl font-semibold hover:bg-portfolio-pink/20 hover:text-portfolio-black w-full justify-start">
+                  <Button
+                    asChild
+                    variant="ghost"
+                    className="text-portfolio-black text-xl font-semibold hover:bg-portfolio-pink/20 hover:text-portfolio-black w-full justify-start"
+                  >
                     <a href="#contact">Contact</a>
                   </Button>
                 </SheetClose>
