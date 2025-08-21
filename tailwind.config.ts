@@ -77,6 +77,7 @@ export default {
         "calc-orange": "#FFA500", // Adjusted from orange
         "whatsapp-green": "#25D366", // Warna hijau WhatsApp
         "reddit-orange": "#FF4500", // Warna oranye Reddit
+        "linkedin-blue": "#0077B5", // Warna biru LinkedIn
       },
       borderRadius: {
         lg: "var(--radius)",

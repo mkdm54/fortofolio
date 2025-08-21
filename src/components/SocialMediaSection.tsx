@@ -7,6 +7,7 @@ const socialLinks = [
     name: "LinkedIn",
     icon: Linkedin,
     url: "https://www.linkedin.com/in/makdum-ibrohim-1097532a1/",
+    colorClass: "bg-linkedin-blue hover:bg-linkedin-blue/80", // Menambahkan colorClass
   },
   {
     name: "Instagram",
