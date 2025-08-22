@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Play, Pause } from "lucide-react"; // Import Pause icon
-import { Progress } from "@/components/ui/progress";
+import { CustomProgressBar } from "@/components/CustomProgressBar"; // Mengganti Progress dengan CustomProgressBar
 
 interface SongCardProps {
   albumArtSrc: string;
@@ -27,6 +27,7 @@ const SongCard: React.FC<SongCardProps> = ({
     const setAudioData = () => {
       setDuration(audio.duration);
       setCurrentTime(audio.currentTime);
+      console.log("Audio metadata loaded. Duration:", audio.duration); // Log untuk debugging
     };
 
     const setAudioTime = () => setCurrentTime(audio.currentTime);
@@ -35,6 +36,12 @@ const SongCard: React.FC<SongCardProps> = ({
     audio.addEventListener("loadedmetadata", setAudioData);
     audio.addEventListener("timeupdate", setAudioTime);
     audio.addEventListener("ended", setAudioEnded);
+
+    // Initial check in case metadata loads very quickly
+    if (audio.readyState >= 1) {
+      // HTMLMediaElement.HAVE_METADATA
+      setAudioData();
+    }
 
     return () => {
       audio.removeEventListener("loadedmetadata", setAudioData);
@@ -110,10 +117,7 @@ const SongCard: React.FC<SongCardProps> = ({
         </div>
 
         {/* Progress Bar */}
-        <Progress
-          value={progressValue}
-          className="w-full h-2 mt-2 bg-gray-200 border border-portfolio-black [&::-webkit-progress-bar]:bg-gray-200 [&::-webkit-progress-value]:bg-portfolio-red-pink [&::-moz-progress-bar]:bg-portfolio-red-pink"
-        />
+        <CustomProgressBar value={progressValue} className="w-full h-2 mt-2" />
       </div>
       {/* Elemen audio tersembunyi */}
       <audio ref={audioRef} src={audioSrc} preload="metadata" />
