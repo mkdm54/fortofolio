@@ -40,7 +40,9 @@ const ProjectSection = () => {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project) => (
-            <div key={project.id} className="relative w-full min-h-[400px]">
+            <div key={project.id} className="relative w-full min-h-[450px]">
+              {" "}
+              {/* Increased min-height */}
               {/* Elemen "bayangan" */}
               <div className="absolute top-2 left-2 w-full h-full bg-white rounded-lg border-4 border-portfolio-black"></div>
               {/* Kartu proyek yang sebenarnya */}
