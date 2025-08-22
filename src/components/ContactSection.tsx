@@ -12,9 +12,16 @@ const ContactSection = () => {
           Get in Touch
         </h2>
         <div className="max-w-2xl mx-auto bg-white p-8 rounded-lg border-4 border-portfolio-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-          <form className="space-y-6">
+          <form
+            action="https://formspree.io/f/xyzprkoe"
+            method="POST"
+            className="space-y-6"
+          >
             <div>
-              <label htmlFor="name" className="block text-lg font-medium text-portfolio-black mb-2">
+              <label
+                htmlFor="name"
+                className="block text-lg font-medium text-portfolio-black mb-2"
+              >
                 Name
               </label>
               <Input
@@ -25,7 +32,10 @@ const ContactSection = () => {
               />
             </div>
             <div>
-              <label htmlFor="email" className="block text-lg font-medium text-portfolio-black mb-2">
+              <label
+                htmlFor="email"
+                className="block text-lg font-medium text-portfolio-black mb-2"
+              >
                 Email
               </label>
               <Input
@@ -36,7 +46,10 @@ const ContactSection = () => {
               />
             </div>
             <div>
-              <label htmlFor="message" className="block text-lg font-medium text-portfolio-black mb-2">
+              <label
+                htmlFor="message"
+                className="block text-lg font-medium text-portfolio-black mb-2"
+              >
                 Message
               </label>
               <Textarea
