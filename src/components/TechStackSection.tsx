@@ -11,8 +11,11 @@ import {
   Cloud,
   Palette,
   Code,
+  ChevronLeft, // Import ChevronLeft icon
+  ChevronRight, // Import ChevronRight icon
 } from "lucide-react";
-import useEmblaCarousel from "embla-carousel-react";
+import useEmblaCarousel, { UseEmblaCarouselType } from "embla-carousel-react"; // Menggunakan UseEmblaCarouselType
+import { Button } from "@/components/ui/button"; // Import Button component
 
 const techStack = [
   { name: "React", icon: Atom },
@@ -29,6 +32,22 @@ const techStack = [
 
 const TechStackSection = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, dragFree: true });
+  const [canScrollPrev, setCanScrollPrev] = React.useState(false);
+  const [canScrollNext, setCanScrollNext] = React.useState(false);
+
+  const scrollPrev = useCallback(() => {
+    if (emblaApi) emblaApi.scrollPrev();
+  }, [emblaApi]);
+
+  const scrollNext = useCallback(() => {
+    if (emblaApi) emblaApi.scrollNext();
+  }, [emblaApi]);
+
+  const onSelect = useCallback((emblaApi: UseEmblaCarouselType[1]) => {
+    // Menggunakan UseEmblaCarouselType[1]
+    setCanScrollPrev(emblaApi.canScrollPrev());
+    setCanScrollNext(emblaApi.canScrollNext());
+  }, []);
 
   const autoplay = useCallback(() => {
     if (!emblaApi) return;
@@ -51,22 +70,24 @@ const TechStackSection = () => {
       stopAutoplay();
     };
 
-    const onSettle = () => {
-      stopAutoplay(); // Pastikan berhenti jika ada interaksi
-      startAutoplay(); // Mulai lagi setelah interaksi selesai
-    };
+    // Update scroll capabilities on init and select
+    emblaApi.on("select", onSelect);
+    emblaApi.on("reInit", onSelect);
+    onSelect(emblaApi); // Initial check
 
     emblaApi.on("pointerDown", onPointerDown);
-    emblaApi.on("settle", onSettle); // Ketika carousel berhenti bergerak setelah interaksi
+    emblaApi.on("settle", startAutoplay); // Mulai lagi setelah interaksi selesai
 
     startAutoplay(); // Mulai autoplay saat komponen dimuat
 
     return () => {
       stopAutoplay();
       emblaApi.off("pointerDown", onPointerDown);
-      emblaApi.off("settle", onSettle);
+      emblaApi.off("settle", startAutoplay);
+      emblaApi.off("select", onSelect);
+      emblaApi.off("reInit", onSelect);
     };
-  }, [emblaApi, autoplay]);
+  }, [emblaApi, autoplay, onSelect]);
 
   return (
     <section className="w-full bg-white py-16 md:py-20 lg:py-24">
@@ -110,6 +131,23 @@ const TechStackSection = () => {
             </div>
           ))}
         </div>
+      </div>
+      {/* Navigation Buttons */}
+      <div className="flex justify-center mt-8 space-x-4">
+        <Button
+          onClick={scrollPrev}
+          disabled={!canScrollPrev}
+          className="bg-portfolio-teal text-portfolio-black border-2 border-portfolio-black rounded-full w-12 h-12 flex items-center justify-center shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:bg-portfolio-teal/80 disabled:opacity-50 disabled:cursor-not-allowed"
+        >
+          <ChevronLeft className="w-6 h-6" />
+        </Button>
+        <Button
+          onClick={scrollNext}
+          disabled={!canScrollNext}
+          className="bg-portfolio-teal text-portfolio-black border-2 border-portfolio-black rounded-full w-12 h-12 flex items-center justify-center shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:bg-portfolio-teal/80 disabled:opacity-50 disabled:cursor-not-allowed"
+        >
+          <ChevronRight className="w-6 h-6" />
+        </Button>
       </div>
     </section>
   );
