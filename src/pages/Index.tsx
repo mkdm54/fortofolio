@@ -14,12 +14,12 @@ const Index = () => {
       <div id="about" data-aos="zoom-in">
         <HeroSection />
       </div>
-      <div className="py-8" data-aos="fade-up">
+      <div className="py-8">
         <SongCard
-          albumArtSrc="/tradies_hits_album_art.svg"
+          albumArtSrc="/diary_depresiku_album_art.jpg" // Mengganti dengan path ke gambar cover album yang baru
           title="Diary Depresiku"
           duration="04:00" // Initial duration, will be updated by audio metadata
-          audioSrc="/Last Child - Diary Depresiku.mp3" // Mengganti dengan path ke file audio yang baru
+          audioSrc="/Last Child - Diary Depresiku.mp3"
         />
       </div>
       <div data-aos="fade-up">
