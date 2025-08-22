@@ -9,12 +9,7 @@ interface SongCardProps {
   audioSrc: string; // New prop for the audio file source
 }
 
-const SongCard: React.FC<SongCardProps> = ({
-  albumArtSrc,
-  title,
-  duration: initialDuration,
-  audioSrc,
-}) => {
+const SongCard: React.FC<SongCardProps> = ({ albumArtSrc, title, duration: initialDuration, audioSrc }) => {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
@@ -38,8 +33,7 @@ const SongCard: React.FC<SongCardProps> = ({
     audio.addEventListener("ended", setAudioEnded);
 
     // Initial check in case metadata loads very quickly
-    if (audio.readyState >= 1) {
-      // HTMLMediaElement.HAVE_METADATA
+    if (audio.readyState >= 1) { // HTMLMediaElement.HAVE_METADATA
       setAudioData();
     }
 
@@ -56,7 +50,7 @@ const SongCard: React.FC<SongCardProps> = ({
       if (isPlaying) {
         audio.pause();
       } else {
-        audio.play().catch((error) => {
+        audio.play().catch(error => {
           console.error("Error playing audio:", error);
           // Handle cases where play() might fail (e.g., user hasn't interacted yet)
         });
@@ -69,9 +63,7 @@ const SongCard: React.FC<SongCardProps> = ({
   const formatTime = (time: number) => {
     const minutes = Math.floor(time / 60);
     const seconds = Math.floor(time % 60);
-    return `${minutes.toString().padStart(2, "0")}:${seconds
-      .toString()
-      .padStart(2, "0")}`;
+    return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
   };
 
   const progressValue = duration > 0 ? (currentTime / duration) * 100 : 0;
@@ -82,10 +74,8 @@ const SongCard: React.FC<SongCardProps> = ({
       <div className="absolute top-2 left-2 w-full h-full bg-portfolio-purple-link rounded-lg border-4 border-portfolio-black"></div>
 
       {/* Kartu lagu yang sebenarnya */}
-      <div
-        className="absolute top-0 left-0 w-full h-full bg-white rounded-lg border-4 border-portfolio-black flex flex-col justify-between p-4
-                      transition-transform duration-100 ease-out transform hover:translate-x-2 hover:translate-y-2 shadow-none"
-      >
+      <div className="absolute top-0 left-0 w-full h-full bg-white rounded-lg border-4 border-portfolio-black flex flex-col justify-between p-4
+                      transition-transform duration-100 ease-out transform hover:translate-x-2 hover:translate-y-2 shadow-none">
         <div className="flex items-center">
           {/* Gambar Album */}
           <img
@@ -108,11 +98,7 @@ const SongCard: React.FC<SongCardProps> = ({
             className="w-12 h-12 bg-always-black text-white rounded-full flex items-center justify-center
                        border-2 border-portfolio-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-gray-800 transition-colors"
           >
-            {isPlaying ? (
-              <Pause className="w-6 h-6 fill-current" />
-            ) : (
-              <Play className="w-6 h-6 fill-current" />
-            )}
+            {isPlaying ? <Pause className="w-6 h-6 fill-current" /> : <Play className="w-6 h-6 fill-current" />}
           </button>
         </div>
 

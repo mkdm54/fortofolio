@@ -14,14 +14,14 @@ const CustomProgressBar = React.forwardRef<
   <ProgressPrimitive.Root
     ref={ref}
     className={cn(
-      "relative h-2 w-full overflow-hidden rounded-full bg-gray-300 border border-portfolio-black", // Track background diubah menjadi bg-gray-300
+      "relative h-2 w-full overflow-hidden rounded-full bg-gray-300 border border-portfolio-black", // Track background
       className
     )}
     {...props}
   >
     <ProgressPrimitive.Indicator
       className={cn(
-        "h-full w-full flex-1 bg-portfolio-red-pink transition-all", // Filled part
+        "h-full flex-1 bg-portfolio-purple-link transition-all rounded-full", // Filled part dengan warna ungu dan ujung membulat
         indicatorClassName
       )}
       style={{ transform: `translateX(-${100 - (value || 0)}%)` }}
