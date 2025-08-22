@@ -5,7 +5,7 @@ const HeroSection = () => {
   return (
     <section className="w-full bg-portfolio-yellow py-16 md:py-24 lg:py-32">
       <div className="container mx-auto px-4">
-        <div className="relative bg-portfolio-teal border-4 border-portfolio-black rounded-lg p-8 md:p-12 lg:p-16 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] flex flex-col items-center text-center">
+        <div className="relative bg-portfolio-teal border-4 border-portfolio-black rounded-none p-8 md:p-12 lg:p-16 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] flex flex-col items-center text-center">
           {/* Top Left Pink Circles */}
           <div className="absolute top-4 left-4 hidden md:flex space-x-1">
             <div className="w-4 h-4 bg-portfolio-pink rounded-full border-2 border-portfolio-black"></div>
@@ -17,7 +17,10 @@ const HeroSection = () => {
           <div className="absolute top-1/4 left-8 hidden md:block">
             <div className="grid grid-cols-3 gap-1">
               {[...Array(9)].map((_, i) => (
-                <div key={i} className="w-2 h-2 bg-portfolio-black rounded-full"></div>
+                <div
+                  key={i}
+                  className="w-2 h-2 bg-portfolio-black rounded-full"
+                ></div>
               ))}
             </div>
           </div>
@@ -34,7 +37,11 @@ const HeroSection = () => {
           </h1>
           {/* About Me Description */}
           <p className="text-lg md:text-xl text-portfolio-black max-w-3xl mb-8">
-            Halo! Saya adalah seorang pengembang web yang bersemangat dengan fokus pada pembuatan pengalaman digital yang menarik dan fungsional. Saya memiliki keahlian dalam pengembangan frontend dan backend, serta desain UI/UX. Saya selalu mencari tantangan baru dan kesempatan untuk belajar dan berkembang.
+            Halo! Saya adalah seorang pengembang web yang bersemangat dengan
+            fokus pada pembuatan pengalaman digital yang menarik dan fungsional.
+            Saya memiliki keahlian dalam pengembangan frontend dan backend,
+            serta desain UI/UX. Saya selalu mencari tantangan baru dan
+            kesempatan untuk belajar dan berkembang.
           </p>
           {/* Call to Action Button */}
           {/* Tombol Download CV dihapus */}

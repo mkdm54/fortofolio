@@ -59,13 +59,13 @@ const SocialMediaSection = () => {
               {" "}
               {/* Container untuk efek 3D */}
               {/* Elemen "bayangan" - ini adalah lapisan belakang putih dengan border hitam */}
-              <div className="absolute top-2 left-2 w-full h-full bg-white rounded-lg border-4 border-portfolio-black"></div>
+              <div className="absolute top-2 left-2 w-full h-full bg-white rounded-none border-4 border-portfolio-black"></div>
               {/* Kartu media sosial yang sebenarnya - ini akan bergerak saat di-hover */}
               <a
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center space-y-2 p-4 ${link.bgColor} ${link.textColor} rounded-lg border-4 border-portfolio-black transition-transform duration-100 ease-out transform hover:translate-x-2 hover:translate-y-2`}
+                className={`absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center space-y-2 p-4 ${link.bgColor} ${link.textColor} rounded-none border-4 border-portfolio-black transition-transform duration-100 ease-out transform hover:translate-x-2 hover:translate-y-2`}
               >
                 {link.icon ? (
                   <link.icon className="w-10 h-10" /> // Ikon Lucide akan mewarisi warna teks

@@ -51,7 +51,7 @@ const ContactSection = () => {
         <h2 className="text-3xl md:text-4xl font-bold text-center text-portfolio-black mb-12">
           Get in Touch
         </h2>
-        <div className="max-w-2xl mx-auto bg-white p-8 rounded-lg border-4 border-portfolio-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+        <div className="max-w-2xl mx-auto bg-white p-8 rounded-none border-4 border-portfolio-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
               <label
@@ -64,7 +64,7 @@ const ContactSection = () => {
                 id="name"
                 type="text"
                 placeholder="Your Name"
-                className="border-2 border-portfolio-black rounded-md px-4 py-3 text-lg focus:ring-portfolio-pink focus:border-portfolio-pink shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
+                className="border-2 border-portfolio-black rounded-none px-4 py-3 text-lg focus:ring-portfolio-pink focus:border-portfolio-pink shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 required
@@ -81,7 +81,7 @@ const ContactSection = () => {
                 id="email"
                 type="email"
                 placeholder="your.email@example.com"
-                className="border-2 border-portfolio-black rounded-md px-4 py-3 text-lg focus:ring-portfolio-pink focus:border-portfolio-pink shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
+                className="border-2 border-portfolio-black rounded-none px-4 py-3 text-lg focus:ring-portfolio-pink focus:border-portfolio-pink shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -98,7 +98,7 @@ const ContactSection = () => {
                 id="message"
                 placeholder="Your message..."
                 rows={5}
-                className="border-2 border-portfolio-black rounded-md px-4 py-3 text-lg focus:ring-portfolio-pink focus:border-portfolio-pink shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
+                className="border-2 border-portfolio-black rounded-none px-4 py-3 text-lg focus:ring-portfolio-pink focus:border-portfolio-pink shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 required
@@ -106,7 +106,7 @@ const ContactSection = () => {
             </div>
             <Button
               type="submit"
-              className="w-full bg-portfolio-pink text-white border-4 border-portfolio-black rounded-lg px-8 py-4 text-xl font-bold hover:bg-portfolio-pink/80 transition-colors shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex items-center justify-center space-x-2"
+              className="w-full bg-portfolio-pink text-white border-4 border-portfolio-black rounded-none px-8 py-4 text-xl font-bold hover:bg-portfolio-pink/80 transition-colors shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex items-center justify-center space-x-2"
               disabled={isSubmitting} // Nonaktifkan tombol saat sedang mengirim
             >
               <Mail className="w-6 h-6" />
