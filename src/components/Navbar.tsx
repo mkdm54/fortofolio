@@ -12,7 +12,7 @@ const Navbar = () => {
   return (
     <nav className="w-full bg-portfolio-teal p-4 border-b-4 border-portfolio-black shadow-[0_4px_0px_0px_rgba(0,0,0,1)] sticky top-0 z-50">
       <div className="container mx-auto flex justify-between items-center">
-        <a href="/" className="text-portfolio-black text-2xl font-extrabold">
+        <a href="/" className="text-always-black text-2xl font-extrabold">
           My Portfolio
         </a>
 
@@ -21,21 +21,21 @@ const Navbar = () => {
           <Button
             asChild
             variant="ghost"
-            className="text-portfolio-black text-lg font-semibold hover:bg-portfolio-pink/20 hover:text-portfolio-black"
+            className="text-always-black text-lg font-semibold hover:bg-portfolio-pink/20 hover:text-always-black"
           >
             <a href="#about">About</a>
           </Button>
           <Button
             asChild
             variant="ghost"
-            className="text-portfolio-black text-lg font-semibold hover:bg-portfolio-pink/20 hover:text-portfolio-black"
+            className="text-always-black text-lg font-semibold hover:bg-portfolio-pink/20 hover:text-always-black"
           >
             <a href="#projects">Projects</a>
           </Button>
           <Button
             asChild
             variant="ghost"
-            className="text-portfolio-black text-lg font-semibold hover:bg-portfolio-pink/20 hover:text-portfolio-black"
+            className="text-always-black text-lg font-semibold hover:bg-portfolio-pink/20 hover:text-always-black"
           >
             <a href="#contact">Contact</a>
           </Button>
@@ -47,11 +47,7 @@ const Navbar = () => {
           <ThemeToggle />
           <Sheet>
             <SheetTrigger asChild>
-              <Button
-                variant="ghost"
-                size="icon"
-                className="text-portfolio-black"
-              >
+              <Button variant="ghost" size="icon" className="text-always-black">
                 <img src="/menu-hambuger.svg" alt="Menu" className="h-8 w-8" />
                 <span className="sr-only">Toggle navigation menu</span>
               </Button>
@@ -65,7 +61,7 @@ const Navbar = () => {
                   <Button
                     asChild
                     variant="ghost"
-                    className="text-portfolio-black text-xl font-semibold hover:bg-portfolio-pink/20 hover:text-portfolio-black w-full justify-start"
+                    className="text-always-black text-xl font-semibold hover:bg-portfolio-pink/20 hover:text-always-black w-full justify-start"
                   >
                     <a href="#about">About</a>
                   </Button>
@@ -74,7 +70,7 @@ const Navbar = () => {
                   <Button
                     asChild
                     variant="ghost"
-                    className="text-portfolio-black text-xl font-semibold hover:bg-portfolio-pink/20 hover:text-portfolio-black w-full justify-start"
+                    className="text-always-black text-xl font-semibold hover:bg-portfolio-pink/20 hover:text-always-black w-full justify-start"
                   >
                     <a href="#projects">Projects</a>
                   </Button>
@@ -83,7 +79,7 @@ const Navbar = () => {
                   <Button
                     asChild
                     variant="ghost"
-                    className="text-portfolio-black text-xl font-semibold hover:bg-portfolio-pink/20 hover:text-portfolio-black w-full justify-start"
+                    className="text-always-black text-xl font-semibold hover:bg-portfolio-pink/20 hover:text-always-black w-full justify-start"
                   >
                     <a href="#contact">Contact</a>
                   </Button>
