@@ -69,7 +69,7 @@ const TechStackSection = () => {
   }, [emblaApi, autoplay]);
 
   return (
-    <section className="w-full bg-white py-16 md:py-24 lg:py-32">
+    <section className="w-full bg-white py-16 md:py-20 lg:py-24">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-center text-portfolio-black mb-12">
           My Tech Stack
