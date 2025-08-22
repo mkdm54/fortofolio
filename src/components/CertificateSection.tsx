@@ -53,7 +53,7 @@ const CertificateSection = () => {
               <div className="absolute top-2 left-2 w-full h-full bg-white rounded-none border-4 border-portfolio-black"></div>
               {/* Kartu sertifikat yang sebenarnya */}
               <Card
-                className="absolute top-0 left-0 w-full h-full border-4 border-portfolio-black rounded-none overflow-hidden bg-white
+                className="absolute top-0 left-0 w-full h-full border-4 border-portfolio-black rounded-none overflow-hidden bg-portfolio-teal
                            transition-transform duration-100 ease-out transform hover:translate-x-2 hover:translate-y-2 shadow-none"
               >
                 <CardHeader className="p-0">

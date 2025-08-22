@@ -47,7 +47,7 @@ const ProjectSection = () => {
               <div className="absolute top-2 left-2 w-full h-full bg-white rounded-none border-4 border-portfolio-black"></div>
               {/* Kartu proyek yang sebenarnya */}
               <Card
-                className="absolute top-0 left-0 w-full h-full border-4 border-portfolio-black rounded-none overflow-hidden bg-white
+                className="absolute top-0 left-0 w-full h-full border-4 border-portfolio-black rounded-none overflow-hidden bg-portfolio-red-pink
                            transition-transform duration-100 ease-out transform hover:translate-x-2 hover:translate-y-2 shadow-none"
               >
                 <CardHeader className="p-0">
@@ -69,26 +69,26 @@ const ProjectSection = () => {
                   </AspectRatio>
                 </CardHeader>
                 <CardContent className="p-6">
-                  <CardTitle className="text-xl font-bold text-portfolio-black mb-2">
+                  <CardTitle className="text-xl font-bold text-white mb-2">
                     {project.title}
                   </CardTitle>
-                  <p className="text-gray-700 mb-4">{project.description}</p>
+                  <p className="text-white mb-4">{project.description}</p>
                   {project.routePath ? (
-                    <p className="text-sm text-gray-500">
+                    <p className="text-sm text-white">
                       <Link
                         to={project.routePath}
-                        className="text-portfolio-pink hover:underline font-semibold"
+                        className="text-portfolio-yellow hover:underline font-semibold"
                       >
                         View Project
                       </Link>
                     </p>
                   ) : project.projectUrl ? (
-                    <p className="text-sm text-gray-500">
+                    <p className="text-sm text-white">
                       <a
                         href={project.projectUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-portfolio-pink hover:underline font-semibold"
+                        className="text-portfolio-yellow hover:underline font-semibold"
                       >
                         View Project on GitHub
                       </a>

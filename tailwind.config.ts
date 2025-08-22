@@ -66,7 +66,8 @@ export default {
         // Custom colors for the portfolio theme
         "portfolio-yellow": "#FFEB00",
         "portfolio-teal": "#00C8C8",
-        "portfolio-pink": "#FF00FF",
+        "portfolio-pink": "#FFFFFFFF",
+        "send-message-purple": "#FF00FF",
         "portfolio-black": "#000000", // Explicitly define black for borders
         "portfolio-red-pink": "#FF0062", // Warna kustom baru: RGB(255, 0, 98)
         // New colors for calculator
