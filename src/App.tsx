@@ -5,7 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
-import CalculatorPage from "./projects/calculator/CalculatorPage"; // Diperbarui: Mengimpor dari lokasi baru
+import CalculatorPage from "./projects/calculator/CalculatorPage";
 
 const queryClient = new QueryClient();
 
@@ -13,7 +13,13 @@ const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
-      <Sonner />
+      <Sonner
+        className="[&>div]:border-2 [&>div]:border-portfolio-black [&>div]:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+        toastOptions={{
+          className: "group toast",
+          descriptionClassName: "toast-[description]",
+        }}
+      />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
