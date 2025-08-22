@@ -10,22 +10,22 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-white">
       <Navbar /> {/* Render Navbar di bagian atas */}
-      <div id="about" data-aos="fade-up">
+      <div id="about" data-aos="zoom-in">
         <HeroSection />
       </div>
-      <div data-aos="fade-up" data-aos-delay="200">
+      <div data-aos="fade-up">
         <CertificateSection />
       </div>
-      <div data-aos="fade-up" data-aos-delay="400">
+      <div data-aos="fade-up">
         <TechStackSection />
       </div>
-      <div id="projects" data-aos="fade-up" data-aos-delay="600">
+      <div id="projects" data-aos="fade-up">
         <ProjectSection />
       </div>
-      <div data-aos="fade-up" data-aos-delay="800">
+      <div data-aos="fade-up">
         <SocialMediaSection />
       </div>
-      <div id="contact" data-aos="fade-up" data-aos-delay="1000">
+      <div id="contact" data-aos="fade-up">
         <ContactSection />
       </div>
       {/* <MadeWithDyad /> Dihapus */}
