@@ -5,7 +5,7 @@ import ProjectSection from "@/components/ProjectSection";
 import SocialMediaSection from "@/components/SocialMediaSection";
 import ContactSection from "@/components/ContactSection";
 import Navbar from "@/components/Navbar";
-import SongCard from "@/components/SongCard";
+// import SongCard from "@/components/SongCard"; // Dihapus karena sudah dipindahkan
 
 const Index = () => {
   return (
@@ -14,16 +14,7 @@ const Index = () => {
       <div id="about" data-aos="zoom-in">
         <HeroSection />
       </div>
-      <div className="py-8 container mx-auto px-4">
-        {" "}
-        {/* Added container mx-auto px-4 here */}
-        <SongCard
-          albumArtSrc="/diary_depresiku_album_art.jpg"
-          title="Diary Depresiku"
-          duration="04:00"
-          audioSrc="/Last Child - Diary Depresiku.mp3"
-        />
-      </div>
+      {/* SongCard dipindahkan ke dalam HeroSection */}
       <div data-aos="fade-up">
         <CertificateSection />
       </div>

@@ -1,5 +1,6 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
+import FavoriteSongSection from "@/components/FavoriteSongSection"; // Import FavoriteSongSection
 
 const HeroSection = () => {
   return (
@@ -45,8 +46,9 @@ const HeroSection = () => {
             serta desain UI/UX. Saya selalu mencari tantangan baru dan
             kesempatan untuk belajar dan berkembang.
           </p>
-          {/* Call to Action Button */}
-          {/* Tombol Download CV dihapus */}
+
+          {/* Favorite Song Section */}
+          <FavoriteSongSection />
         </div>
       </div>
     </section>
