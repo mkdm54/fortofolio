@@ -137,14 +137,14 @@ const TechStackSection = () => {
         <Button
           onClick={scrollPrev}
           disabled={!canScrollPrev}
-          className="bg-portfolio-teal text-portfolio-black border-2 border-portfolio-black rounded-full w-12 h-12 flex items-center justify-center shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:bg-portfolio-teal/80 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="bg-portfolio-teal text-portfolio-black border-2 border-portfolio-black rounded-full w-12 h-12 flex items-center justify-center shadow-[0_8px_0_black] active:shadow-[0_4px_0_black] active:translate-y-1 transition-all duration-100 hover:bg-portfolio-teal/80 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           <ChevronLeft className="w-6 h-6" />
         </Button>
         <Button
           onClick={scrollNext}
           disabled={!canScrollNext}
-          className="bg-portfolio-teal text-portfolio-black border-2 border-portfolio-black rounded-full w-12 h-12 flex items-center justify-center shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:bg-portfolio-teal/80 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="bg-portfolio-teal text-portfolio-black border-2 border-portfolio-black rounded-full w-12 h-12 flex items-center justify-center shadow-[0_8px_0_black] active:shadow-[0_4px_0_black] active:translate-y-1 transition-all duration-100 hover:bg-portfolio-teal/80 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           <ChevronRight className="w-6 h-6" />
         </Button>
