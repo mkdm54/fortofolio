@@ -7,7 +7,9 @@ const FavoriteSongSection = () => {
       <h2 className="text-2xl md:text-3xl font-bold text-center text-always-black mb-8">
         My Favorite Song
       </h2>
-      <div className="max-w-md mx-auto">
+      <div className="w-full mx-auto">
+        {" "}
+        {/* Mengubah max-w-md menjadi w-full */}
         <SongCard
           albumArtSrc="/diary_depresiku_album_art.jpg"
           title="Diary Depresiku"
