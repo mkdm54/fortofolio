@@ -46,7 +46,9 @@ const ContactSection = () => {
   };
 
   return (
-    <section className="w-full bg-white py-16 md:py-20 lg:py-24">
+    <section className="w-full bg-background py-16 md:py-20 lg:py-24">
+      {" "}
+      {/* Diubah dari bg-white */}
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-center text-portfolio-black mb-12">
           Get in Touch

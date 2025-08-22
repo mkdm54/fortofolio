@@ -8,7 +8,9 @@ import Navbar from "@/components/Navbar";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background">
+      {" "}
+      {/* Diubah dari bg-white */}
       <Navbar /> {/* Render Navbar di bagian atas */}
       <div id="about" data-aos="zoom-in">
         <HeroSection />

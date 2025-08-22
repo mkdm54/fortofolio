@@ -64,25 +64,27 @@ export default {
           ring: "hsl(var(--sidebar-ring))",
         },
         // Custom colors for the portfolio theme
-        "portfolio-yellow": "#FFEB00",
-        "portfolio-teal": "#00C8C8",
-        "portfolio-pink": "#FFFFFFFF",
-        "send-message-purple": "#FF00FF",
-        "portfolio-black": "#000000", // Explicitly define black for borders
-        "portfolio-red-pink": "#FF0062", // Warna kustom baru: RGB(255, 0, 98)
-        // New colors for calculator
+        "portfolio-yellow": "hsl(var(--portfolio-yellow))",
+        "portfolio-teal": "hsl(var(--portfolio-teal))",
+        "portfolio-pink": "hsl(var(--portfolio-pink))",
+        "send-message-purple": "hsl(var(--send-message-purple))",
+        "portfolio-black": "hsl(var(--portfolio-black))",
+        "portfolio-red-pink": "hsl(var(--portfolio-red-pink))",
+        "card-text-dark-mode": "hsl(var(--card-text-dark-mode))", // New color for card text
+        // New colors for calculator (these will remain fixed for now)
         "calc-dark-blue": "#2700d4",
         "calc-purple": "#4A00E0",
         "calc-deep-blue": "#160078",
-        "calc-cyan": "#00FFC8", // Adjusted from rgb(0, 255, 200)
-        "calc-red": "#FF0000", // Adjusted from rgb(255, 0, 0)
-        "calc-orange": "#FFA500", // Adjusted from orange
-        "whatsapp-green": "#25D366", // Warna hijau WhatsApp
-        "reddit-orange": "#FF4500", // Warna oranye Reddit
-        "linkedin-blue": "#0077B5", // Warna biru LinkedIn
-        "instagram-purple": "#E1306C", // Warna ungu Instagram
-        "github-black": "#181717", // Warna hitam GitHub
-        "threads-black": "#000000", // Warna hitam untuk Threads (sesuai logo)
+        "calc-cyan": "#00FFC8",
+        "calc-red": "#FF0000",
+        "calc-orange": "#FFA500",
+        // Social media colors (these will remain fixed for now)
+        "whatsapp-green": "#25D366",
+        "reddit-orange": "#FF4500",
+        "linkedin-blue": "#0077B5",
+        "instagram-purple": "#E1306C",
+        "github-black": "#181717",
+        "threads-black": "#000000",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -106,17 +108,12 @@ export default {
             height: "0",
           },
         },
-        // "scroll-left": { // Dihapus
-        //   from: { transform: "translateX(0%)" },
-        //   to: { transform: "translateX(-50%)" },
-        // },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        // "scroll-left": "scroll-left 30s linear infinite", // Dihapus
       },
     },
   },
-  plugins: [tailwindcssAnimate], // Menggunakan modul yang diimpor
+  plugins: [tailwindcssAnimate],
 } satisfies Config;

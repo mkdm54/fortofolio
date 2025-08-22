@@ -33,7 +33,7 @@ const projects = [
 
 const ProjectSection = () => {
   return (
-    <section className="w-full bg-white py-16 md:py-20 lg:py-24">
+    <section className="w-full bg-background py-16 md:py-20 lg:py-24">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-center text-portfolio-black mb-12">
           My Projects
@@ -44,7 +44,7 @@ const ProjectSection = () => {
               {" "}
               {/* Increased min-height */}
               {/* Elemen "bayangan" */}
-              <div className="absolute top-2 left-2 w-full h-full bg-white rounded-none border-4 border-portfolio-black"></div>
+              <div className="absolute top-2 left-2 w-full h-full bg-background rounded-none border-4 border-portfolio-black"></div>
               {/* Kartu proyek yang sebenarnya */}
               <Card
                 className="absolute top-0 left-0 w-full h-full border-4 border-portfolio-black rounded-none overflow-hidden bg-portfolio-red-pink
@@ -69,12 +69,19 @@ const ProjectSection = () => {
                   </AspectRatio>
                 </CardHeader>
                 <CardContent className="p-6">
-                  <CardTitle className="text-xl font-bold text-white mb-2">
+                  <CardTitle className="text-xl font-bold text-card-text-dark-mode mb-2">
+                    {" "}
+                    {/* Diubah ke text-card-text-dark-mode */}
                     {project.title}
                   </CardTitle>
-                  <p className="text-white mb-4">{project.description}</p>
+                  <p className="text-card-text-dark-mode mb-4">
+                    {project.description}
+                  </p>{" "}
+                  {/* Diubah ke text-card-text-dark-mode */}
                   {project.routePath ? (
-                    <p className="text-sm text-white">
+                    <p className="text-sm text-card-text-dark-mode">
+                      {" "}
+                      {/* Diubah ke text-card-text-dark-mode */}
                       <Link
                         to={project.routePath}
                         className="text-portfolio-yellow hover:underline font-semibold"
@@ -83,7 +90,9 @@ const ProjectSection = () => {
                       </Link>
                     </p>
                   ) : project.projectUrl ? (
-                    <p className="text-sm text-white">
+                    <p className="text-sm text-card-text-dark-mode">
+                      {" "}
+                      {/* Diubah ke text-card-text-dark-mode */}
                       <a
                         href={project.projectUrl}
                         target="_blank"

@@ -48,7 +48,9 @@ const socialLinks = [
 
 const SocialMediaSection = () => {
   return (
-    <section className="w-full bg-white py-16 md:py-24 lg:py-32">
+    <section className="w-full bg-background py-16 md:py-20 lg:py-24">
+      {" "}
+      {/* Diubah dari bg-white */}
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-center text-portfolio-black mb-12">
           Connect With Me
@@ -59,7 +61,8 @@ const SocialMediaSection = () => {
               {" "}
               {/* Container untuk efek 3D */}
               {/* Elemen "bayangan" - ini adalah lapisan belakang putih dengan border hitam */}
-              <div className="absolute top-2 left-2 w-full h-full bg-white rounded-none border-4 border-portfolio-black"></div>
+              <div className="absolute top-2 left-2 w-full h-full bg-background rounded-none border-4 border-portfolio-black"></div>{" "}
+              {/* Diubah dari bg-white */}
               {/* Kartu media sosial yang sebenarnya - ini akan bergerak saat di-hover */}
               <a
                 href={link.url}

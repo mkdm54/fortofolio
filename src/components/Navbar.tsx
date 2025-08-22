@@ -6,6 +6,7 @@ import {
   SheetTrigger,
   SheetClose,
 } from "@/components/custom-sheet";
+import { ThemeToggle } from "@/components/ThemeToggle"; // Import ThemeToggle
 
 const Navbar = () => {
   return (
@@ -16,7 +17,7 @@ const Navbar = () => {
         </a>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex space-x-4">
+        <div className="hidden md:flex items-center space-x-4">
           <Button
             asChild
             variant="ghost"
@@ -38,10 +39,12 @@ const Navbar = () => {
           >
             <a href="#contact">Contact</a>
           </Button>
+          <ThemeToggle />
         </div>
 
         {/* Mobile Navigation */}
-        <div className="md:hidden">
+        <div className="md:hidden flex items-center">
+          <ThemeToggle />
           <Sheet>
             <SheetTrigger asChild>
               <Button
@@ -49,12 +52,7 @@ const Navbar = () => {
                 size="icon"
                 className="text-portfolio-black"
               >
-                {/* Menggunakan tag img untuk SVG dari file public */}
-                <img
-                  src="/menu-hambuger.svg"
-                  alt="Menu"
-                  className="h-8 w-8" // Menerapkan kelas Tailwind untuk ukuran
-                />
+                <img src="/menu-hambuger.svg" alt="Menu" className="h-8 w-8" />
                 <span className="sr-only">Toggle navigation menu</span>
               </Button>
             </SheetTrigger>

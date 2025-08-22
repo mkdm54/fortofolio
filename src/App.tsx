@@ -10,6 +10,7 @@ import AOS from "aos";
 import "aos/dist/aos.css"; // Import CSS AOS
 
 import { useEffect } from "react"; // Import useEffect
+import { ThemeProvider } from "@/components/ThemeProvider"; // Import ThemeProvider
 
 const queryClient = new QueryClient();
 
@@ -23,24 +24,26 @@ const App = () => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner
-          className="[&>div]:border-2 [&>div]:border-portfolio-black [&>div]:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
-          toastOptions={{
-            className: "group toast",
-            descriptionClassName: "toast-[description]",
-          }}
-        />
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/projects/calculator" element={<CalculatorPage />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </BrowserRouter>
-      </TooltipProvider>
+      <ThemeProvider defaultTheme="system" enableSystem attribute="class">
+        <TooltipProvider>
+          <Toaster />
+          <Sonner
+            className="[&>div]:border-2 [&>div]:border-portfolio-black [&>div]:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+            toastOptions={{
+              className: "group toast",
+              descriptionClassName: "toast-[description]",
+            }}
+          />
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/projects/calculator" element={<CalculatorPage />} />
+              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </BrowserRouter>
+        </TooltipProvider>
+      </ThemeProvider>
     </QueryClientProvider>
   );
 };
