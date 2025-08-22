@@ -46,42 +46,49 @@ const CertificateSection = () => {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {certificates.map((certificate) => (
-            <Card
-              key={certificate.id}
-              className="border-4 border-portfolio-black rounded-lg overflow-hidden shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] bg-white"
-            >
-              <CardHeader className="p-0">
-                <AspectRatio ratio={16 / 9}>
-                  {certificate.image ? (
-                    <img
-                      src={certificate.image}
-                      alt={certificate.title}
-                      className="object-cover w-full h-full border-b-4 border-portfolio-black"
-                    />
-                  ) : (
-                    <div className="flex items-center justify-center h-full bg-gray-200 text-gray-500 text-xl font-semibold border-b-4 border-portfolio-black">
-                      Certificate Placeholder {certificate.id}
-                    </div>
+            <div key={certificate.id} className="relative w-full min-h-[400px]">
+              {/* Elemen "bayangan" */}
+              <div className="absolute top-2 left-2 w-full h-full bg-white rounded-lg border-4 border-portfolio-black"></div>
+              {/* Kartu sertifikat yang sebenarnya */}
+              <Card
+                className="absolute top-0 left-0 w-full h-full border-4 border-portfolio-black rounded-lg overflow-hidden bg-white
+                           transition-transform duration-100 ease-out transform hover:translate-x-2 hover:translate-y-2 shadow-none"
+              >
+                <CardHeader className="p-0">
+                  <AspectRatio ratio={16 / 9}>
+                    {certificate.image ? (
+                      <img
+                        src={certificate.image}
+                        alt={certificate.title}
+                        className="object-cover w-full h-full border-b-4 border-portfolio-black"
+                      />
+                    ) : (
+                      <div className="flex items-center justify-center h-full bg-gray-200 text-gray-500 text-xl font-semibold border-b-4 border-portfolio-black">
+                        Certificate Placeholder {certificate.id}
+                      </div>
+                    )}
+                  </AspectRatio>
+                </CardHeader>
+                <CardContent className="p-6">
+                  <CardTitle className="text-xl font-bold text-portfolio-black mb-2">
+                    {certificate.title}
+                  </CardTitle>
+                  <p className="text-gray-700 mb-4">
+                    {certificate.description}
+                  </p>
+                  {certificate.link && (
+                    <a
+                      href={certificate.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-portfolio-pink hover:underline font-semibold"
+                    >
+                      View Certificate
+                    </a>
                   )}
-                </AspectRatio>
-              </CardHeader>
-              <CardContent className="p-6">
-                <CardTitle className="text-xl font-bold text-portfolio-black mb-2">
-                  {certificate.title}
-                </CardTitle>
-                <p className="text-gray-700 mb-4">{certificate.description}</p>
-                {certificate.link && (
-                  <a
-                    href={certificate.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-portfolio-pink hover:underline font-semibold"
-                  >
-                    View Certificate
-                  </a>
-                )}
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            </div>
           ))}
         </div>
       </div>
