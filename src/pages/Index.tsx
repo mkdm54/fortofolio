@@ -5,15 +5,22 @@ import ProjectSection from "@/components/ProjectSection";
 import SocialMediaSection from "@/components/SocialMediaSection";
 import ContactSection from "@/components/ContactSection";
 import Navbar from "@/components/Navbar";
+import SongCard from "@/components/SongCard";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
-      {" "}
-      {/* Diubah dari bg-white */}
-      <Navbar /> {/* Render Navbar di bagian atas */}
+      <Navbar />
       <div id="about" data-aos="zoom-in">
         <HeroSection />
+      </div>
+      <div className="py-8" data-aos="fade-up">
+        <SongCard
+          albumArtSrc="/tradies_hits_album_art.svg"
+          title="Diary Depresiku"
+          duration="04:00" // Initial duration, will be updated by audio metadata
+          audioSrc="/Last Child - Diary Depresiku.mp3" // Mengganti dengan path ke file audio yang baru
+        />
       </div>
       <div data-aos="fade-up">
         <CertificateSection />
@@ -30,7 +37,6 @@ const Index = () => {
       <div id="contact" data-aos="fade-up">
         <ContactSection />
       </div>
-      {/* <MadeWithDyad /> Dihapus */}
     </div>
   );
 };
