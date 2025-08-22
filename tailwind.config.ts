@@ -72,6 +72,7 @@ export default {
         "portfolio-red-pink": "hsl(var(--portfolio-red-pink))",
         "card-text-dark-mode": "hsl(var(--card-text-dark-mode))", // New color for card text
         "always-black": "hsl(var(--always-black))", // New color for always black text
+        "portfolio-purple-link": "hsl(var(--portfolio-purple-link))", // New color for consistent purple link
         // New colors for calculator (these will remain fixed for now)
         "calc-dark-blue": "#2700d4",
         "calc-purple": "#4A00E0",

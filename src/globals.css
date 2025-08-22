@@ -67,6 +67,8 @@
     /* Always black for card text */
     --always-black: 0 0% 0%;
     /* Always black */
+    --portfolio-purple-link: 270 80% 50%;
+    /* A vibrant purple for links */
   }
 
   .dark {
@@ -123,6 +125,8 @@
     /* Always black for card text */
     --always-black: 0 0% 0%;
     /* Always black */
+    --portfolio-purple-link: 270 80% 50%;
+    /* A vibrant purple for links */
   }
 }
 
