@@ -65,6 +65,8 @@
     /* #FF00FF */
     --card-text-dark-mode: 0 0% 0%;
     /* Always black for card text */
+    --always-black: 0 0% 0%;
+    /* Always black */
   }
 
   .dark {
@@ -119,6 +121,8 @@
     /* Lighter Purple */
     --card-text-dark-mode: 0 0% 0%;
     /* Always black for card text */
+    --always-black: 0 0% 0%;
+    /* Always black */
   }
 }
 

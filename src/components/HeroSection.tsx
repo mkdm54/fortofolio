@@ -34,11 +34,11 @@ const HeroSection = () => {
             className="w-48 h-48 md:w-64 md:h-64 rounded-full object-cover border-4 border-portfolio-black mb-8 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
           />
           {/* Name */}
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-portfolio-black leading-tight mb-4">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-always-black leading-tight mb-4">
             Makdum Ibrohim
           </h1>
           {/* About Me Description */}
-          <p className="text-lg md:text-xl text-portfolio-black max-w-3xl mb-8">
+          <p className="text-lg md:text-xl text-always-black max-w-3xl mb-8">
             Halo! Saya adalah seorang pengembang web yang bersemangat dengan
             fokus pada pembuatan pengalaman digital yang menarik dan fungsional.
             Saya memiliki keahlian dalam pengembangan frontend dan backend,
