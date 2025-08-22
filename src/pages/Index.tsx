@@ -14,11 +14,13 @@ const Index = () => {
       <div id="about" data-aos="zoom-in">
         <HeroSection />
       </div>
-      <div className="py-8">
+      <div className="py-8 container mx-auto px-4">
+        {" "}
+        {/* Added container mx-auto px-4 here */}
         <SongCard
-          albumArtSrc="/diary_depresiku_album_art.jpg" // Mengganti dengan path ke gambar cover album yang baru
+          albumArtSrc="/diary_depresiku_album_art.jpg"
           title="Diary Depresiku"
-          duration="04:00" // Initial duration, will be updated by audio metadata
+          duration="04:00"
           audioSrc="/Last Child - Diary Depresiku.mp3"
         />
       </div>
