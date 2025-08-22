@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 
 const HeroSection = () => {
   return (
-    <section className="w-full bg-portfolio-yellow py-16 md:py-24 lg:py-32">
+    <section className="w-full bg-white py-16 md:py-24 lg:py-32">
       <div className="container mx-auto px-4">
         <div className="relative bg-portfolio-teal border-4 border-portfolio-black rounded-none p-8 md:p-12 lg:p-16 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] flex flex-col items-center text-center">
           {/* Top Left Pink Circles */}

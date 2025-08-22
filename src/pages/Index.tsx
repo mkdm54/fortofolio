@@ -8,7 +8,7 @@ import Navbar from "@/components/Navbar";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-portfolio-yellow">
+    <div className="min-h-screen bg-white">
       <Navbar /> {/* Render Navbar di bagian atas */}
       <div id="about" data-aos="fade-up">
         <HeroSection />
