@@ -40,11 +40,10 @@ const HeroSection = () => {
           </h1>
           {/* About Me Description */}
           <p className="text-lg md:text-xl text-always-black max-w-3xl mb-8">
-            Halo! Saya adalah seorang pengembang web yang bersemangat dengan
-            fokus pada pembuatan pengalaman digital yang menarik dan fungsional.
-            Saya memiliki keahlian dalam pengembangan frontend dan backend,
-            serta desain UI/UX. Saya selalu mencari tantangan baru dan
-            kesempatan untuk belajar dan berkembang.
+            Hai! Aku web developer yang excited banget bikin website atau
+            aplikasi yang kece dan bisa dipake. Fokus utamaku di frontend, tapi
+            lagi gaspol juga belajar backend. Selalu open buat tantangan baru
+            biar makin jago!
           </p>
 
           {/* Favorite Song Section */}
