@@ -22,8 +22,14 @@ const SongCard: React.FC<SongCardProps> = ({
   const audioRef = useRef<HTMLAudioElement>(null);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
+  const currentTimeRef = useRef(currentTime); // Ref untuk menyimpan currentTime
 
   const isPlaying = songId === currentlyPlayingId; // Determine if THIS song should be playing
+
+  // Effect untuk selalu memperbarui currentTimeRef dengan nilai currentTime terbaru
+  useEffect(() => {
+    currentTimeRef.current = currentTime;
+  }, [currentTime]);
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -66,14 +72,14 @@ const SongCard: React.FC<SongCardProps> = ({
       });
     } else {
       audio.pause();
-      // Only reset time if it was playing and now paused by another song
-      // or if it was explicitly paused by clicking its own button
-      if (currentTime > 0) {
+      // Hanya reset waktu jika lagu sebelumnya diputar (currentTime > 0)
+      // Menggunakan currentTimeRef.current untuk menghindari peringatan ESLint
+      if (currentTimeRef.current > 0) {
         audio.currentTime = 0;
         setCurrentTime(0);
       }
     }
-  }, [isPlaying]); // Re-run when isPlaying status changes
+  }, [isPlaying]); // currentTime tidak lagi menjadi dependensi
 
   const togglePlayPause = () => {
     if (isPlaying) {
