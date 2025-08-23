@@ -93,8 +93,14 @@ const SongCard: React.FC<SongCardProps> = ({
           />
 
           {/* Informasi Lagu */}
-          <div className="flex-grow ml-4">
-            <h3 className="text-lg font-bold text-always-black">{title}</h3>
+          <div className="flex-grow ml-4 min-w-0">
+            {" "}
+            {/* Menambahkan min-w-0 di sini */}
+            <h3 className="text-lg font-bold text-always-black overflow-hidden text-ellipsis whitespace-nowrap">
+              {" "}
+              {/* Menambahkan styling ini */}
+              {title}
+            </h3>
             <p className="text-sm text-gray-600">
               {formatTime(currentTime)} / {formatTime(duration)}
             </p>
