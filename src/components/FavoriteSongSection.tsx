@@ -1,21 +1,37 @@
 import React from "react";
 import SongCard from "@/components/SongCard";
 
+const favoriteSongs = [
+  {
+    albumArtSrc: "/diary_depresiku_album_art.jpg",
+    title: "Diary Depresiku",
+    audioSrc: "/Last Child - Diary Depresiku.mp3",
+  },
+  {
+    albumArtSrc: "/taylor_swift_message_in_a_bottle_album_art.jpg",
+    title: "Message In A Bottle (Taylor's Version)",
+    audioSrc: "/Taylor Swift - Message In A Bottle (Taylor's Version).mp3",
+  },
+  
+];
+
 const FavoriteSongSection = () => {
   return (
     <div className="w-full py-8 px-4">
       <h2 className="text-2xl md:text-3xl font-bold text-center text-always-black mb-8">
-        My Favorite Song
+        My Favorite Songs
       </h2>
-      <div className="w-full mx-auto">
+      <div className="w-full mx-auto space-y-6">
         {" "}
-        {/* Mengubah max-w-md menjadi w-full */}
-        <SongCard
-          albumArtSrc="/diary_depresiku_album_art.jpg"
-          title="Diary Depresiku"
-          duration="04:00"
-          audioSrc="/Last Child - Diary Depresiku.mp3"
-        />
+        {/* Menambahkan space-y-6 untuk jarak antar kartu */}
+        {favoriteSongs.map((song, index) => (
+          <SongCard
+            key={index}
+            albumArtSrc={song.albumArtSrc}
+            title={song.title}
+            audioSrc={song.audioSrc}
+          />
+        ))}
       </div>
     </div>
   );
