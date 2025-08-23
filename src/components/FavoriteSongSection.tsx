@@ -12,7 +12,12 @@ const favoriteSongs = [
     title: "Message In A Bottle (Taylor's Version)",
     audioSrc: "/Taylor Swift - Message In A Bottle (Taylor's Version).mp3",
   },
-  
+  {
+    albumArtSrc: "/calvin_harris_feels_album_art.png",
+    title: "Feels (ft. Pharrell Williams, Katy Perry, Big Sean)",
+    audioSrc:
+      "/Calvin Harris - Feels (Official Video) ft. Pharrell Williams, Katy Perry, Big Sean.mp3",
+  },
 ];
 
 const FavoriteSongSection = () => {
