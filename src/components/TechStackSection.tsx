@@ -11,7 +11,7 @@ import {
   Cloud,
   Palette,
   Code,
-} from "lucide-react"; // Menghapus ChevronLeft dan ChevronRight
+} from "lucide-react";
 import useEmblaCarousel, { UseEmblaCarouselType } from "embla-carousel-react";
 import { Button } from "@/components/ui/button";
 
@@ -100,8 +100,8 @@ const TechStackSection = () => {
               className="embla__slide flex-shrink-0 min-w-0 px-4 py-2
                          w-[calc(100%/2)] sm:w-[calc(100%/3)] md:w-[calc(100%/4)] lg:w-[calc(100%/5)]"
             >
-              <Badge className="bg-portfolio-red-pink text-white border-2 border-portfolio-black px-6 py-3 text-lg font-semibold rounded-md shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex items-center justify-center space-x-2">
-                {tech.icon && <tech.icon className="w-6 h-6" />}
+              <Badge className="bg-portfolio-red-pink text-white border-2 border-portfolio-black p-4 text-xl font-semibold rounded-md shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex flex-col items-center justify-center space-y-2 h-32 w-full">
+                {tech.icon && <tech.icon className="w-10 h-10" />}
                 <span>{tech.name}</span>
               </Badge>
             </div>
@@ -112,8 +112,8 @@ const TechStackSection = () => {
               className="embla__slide flex-shrink-0 min-w-0 px-4 py-2
                          w-[calc(100%/2)] sm:w-[calc(100%/3)] md:w-[calc(100%/4)] lg:w-[calc(100%/5)]"
             >
-              <Badge className="bg-portfolio-red-pink text-white border-2 border-portfolio-black px-6 py-3 text-lg font-semibold rounded-md shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex items-center justify-center space-x-2">
-                {tech.icon && <tech.icon className="w-6 h-6" />}
+              <Badge className="bg-portfolio-red-pink text-white border-2 border-portfolio-black p-4 text-xl font-semibold rounded-md shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex flex-col items-center justify-center space-y-2 h-32 w-full">
+                {tech.icon && <tech.icon className="w-10 h-10" />}
                 <span>{tech.name}</span>
               </Badge>
             </div>
