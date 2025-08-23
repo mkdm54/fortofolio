@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from "react";
+import React, { useCallback, useEffect, useState } from "react"; // Import useState
 import SongCard from "@/components/SongCard";
 import useEmblaCarousel, { UseEmblaCarouselType } from "embla-carousel-react";
 import { Button } from "@/components/ui/button";
@@ -6,16 +6,19 @@ import { ChevronLeft, ChevronRight } from "lucide-react"; // Import Chevron icon
 
 const favoriteSongs = [
   {
+    id: 1, // Add unique ID
     albumArtSrc: "/diary_depresiku_album_art.jpg",
     title: "Diary Depresiku",
     audioSrc: "/Last Child - Diary Depresiku.mp3",
   },
   {
+    id: 2, // Add unique ID
     albumArtSrc: "/taylor_swift_message_in_a_bottle_album_art.jpg",
     title: "Message In A Bottle (Taylor's Version)",
     audioSrc: "/Taylor Swift - Message In A Bottle (Taylor's Version).mp3",
   },
   {
+    id: 3, // Add unique ID
     albumArtSrc: "/calvin_harris_feels_album_art.png",
     title: "Feels (ft. Pharrell Williams, Katy Perry, Big Sean)",
     audioSrc:
@@ -25,8 +28,11 @@ const favoriteSongs = [
 
 const FavoriteSongSection = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, dragFree: true });
-  const [canScrollPrev, setCanScrollPrev] = React.useState(false);
-  const [canScrollNext, setCanScrollNext] = React.useState(false);
+  const [canScrollPrev, setCanScrollPrev] = useState(false);
+  const [canScrollNext, setCanScrollNext] = useState(false);
+  const [currentlyPlayingId, setCurrentlyPlayingId] = useState<number | null>(
+    null
+  ); // State to track which song is currently playing
 
   const scrollPrev = useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev();
@@ -39,6 +45,10 @@ const FavoriteSongSection = () => {
   const onSelect = useCallback((emblaApi: UseEmblaCarouselType[1]) => {
     setCanScrollPrev(emblaApi.canScrollPrev());
     setCanScrollNext(emblaApi.canScrollNext());
+  }, []);
+
+  const handleTogglePlay = useCallback((id: number | null) => {
+    setCurrentlyPlayingId(id);
   }, []);
 
   useEffect(() => {
@@ -61,16 +71,19 @@ const FavoriteSongSection = () => {
       </h2>
       <div className="relative w-full overflow-hidden" ref={emblaRef}>
         <div className="flex">
-          {favoriteSongs.map((song, index) => (
+          {favoriteSongs.map((song) => (
             <div
-              key={index}
+              key={song.id} // Use song.id as key
               className="embla__slide flex-shrink-0 min-w-0 px-4 py-2
                          w-full sm:w-[calc(100%/2)] md:w-[calc(100%/3)] lg:w-[calc(100%/3)]"
             >
               <SongCard
+                songId={song.id} // Pass song ID
                 albumArtSrc={song.albumArtSrc}
                 title={song.title}
                 audioSrc={song.audioSrc}
+                currentlyPlayingId={currentlyPlayingId} // Pass global playing state
+                onTogglePlay={handleTogglePlay} // Pass handler to update global state
               />
             </div>
           ))}

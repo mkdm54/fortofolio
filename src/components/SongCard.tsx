@@ -3,20 +3,27 @@ import { Play, Pause } from "lucide-react"; // Import Pause icon
 import { CustomProgressBar } from "@/components/CustomProgressBar"; // Mengganti Progress dengan CustomProgressBar
 
 interface SongCardProps {
+  songId: number; // Add unique ID for the song
   albumArtSrc: string;
   title: string;
-  audioSrc: string; // New prop for the audio file source
+  audioSrc: string;
+  currentlyPlayingId: number | null; // ID of the song currently playing globally
+  onTogglePlay: (id: number | null) => void; // Function to update global playing state
 }
 
 const SongCard: React.FC<SongCardProps> = ({
+  songId,
   albumArtSrc,
   title,
   audioSrc,
+  currentlyPlayingId,
+  onTogglePlay,
 }) => {
   const audioRef = useRef<HTMLAudioElement>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
-  const [duration, setDuration] = useState(0); // State for actual audio duration
+  const [duration, setDuration] = useState(0);
+
+  const isPlaying = songId === currentlyPlayingId; // Determine if THIS song should be playing
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -25,11 +32,13 @@ const SongCard: React.FC<SongCardProps> = ({
     const setAudioData = () => {
       setDuration(audio.duration);
       setCurrentTime(audio.currentTime);
-      console.log("Audio metadata loaded. Duration:", audio.duration); // Log untuk debugging
     };
 
     const setAudioTime = () => setCurrentTime(audio.currentTime);
-    const setAudioEnded = () => setIsPlaying(false);
+    const setAudioEnded = () => {
+      onTogglePlay(null); // Notify parent that playback has ended
+      setCurrentTime(0); // Reset current time
+    };
 
     audio.addEventListener("loadedmetadata", setAudioData);
     audio.addEventListener("timeupdate", setAudioTime);
@@ -37,7 +46,6 @@ const SongCard: React.FC<SongCardProps> = ({
 
     // Initial check in case metadata loads very quickly
     if (audio.readyState >= 1) {
-      // HTMLMediaElement.HAVE_METADATA
       setAudioData();
     }
 
@@ -46,20 +54,32 @@ const SongCard: React.FC<SongCardProps> = ({
       audio.removeEventListener("timeupdate", setAudioTime);
       audio.removeEventListener("ended", setAudioEnded);
     };
-  }, []);
+  }, [audioSrc, onTogglePlay]); // Re-run if audioSrc changes
+
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    if (isPlaying) {
+      audio.play().catch((error) => {
+        console.error("Error playing audio:", error);
+      });
+    } else {
+      audio.pause();
+      // Only reset time if it was playing and now paused by another song
+      // or if it was explicitly paused by clicking its own button
+      if (currentTime > 0) {
+        audio.currentTime = 0;
+        setCurrentTime(0);
+      }
+    }
+  }, [isPlaying]); // Re-run when isPlaying status changes
 
   const togglePlayPause = () => {
-    const audio = audioRef.current;
-    if (audio) {
-      if (isPlaying) {
-        audio.pause();
-      } else {
-        audio.play().catch((error) => {
-          console.error("Error playing audio:", error);
-          // Handle cases where play() might fail (e.g., user hasn't interacted yet)
-        });
-      }
-      setIsPlaying(!isPlaying);
+    if (isPlaying) {
+      onTogglePlay(null); // Pause this song
+    } else {
+      onTogglePlay(songId); // Play this song
     }
   };
 
@@ -94,11 +114,7 @@ const SongCard: React.FC<SongCardProps> = ({
 
           {/* Informasi Lagu */}
           <div className="flex-grow ml-4 min-w-0">
-            {" "}
-            {/* Menambahkan min-w-0 di sini */}
             <h3 className="text-lg font-bold text-always-black overflow-hidden text-ellipsis whitespace-nowrap">
-              {" "}
-              {/* Menambahkan styling ini */}
               {title}
             </h3>
             <p className="text-sm text-gray-600">
