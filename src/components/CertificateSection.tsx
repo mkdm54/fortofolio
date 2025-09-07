@@ -35,6 +35,14 @@ const certificates = [
     image: "/sertifikat_belajar_membuat_front-end_web_untuk_pemula.png",
     link: "https://raw.githubusercontent.com/mkdm54/fortofolio/main/public/sertifikat_belajar_membuat_front-end_web_untuk_pemula.png",
   },
+  {
+    id: 5,
+    title: "Memulai Pemrograman Dengan Dart",
+    description:
+      "Sertifikat kelulusan dari Dicoding Indonesia untuk kelas Memulai Pemrograman Dengan Dart.",
+    image: "/sertifikat_memulai_pemrograman_dart.png",
+    link: "https://raw.githubusercontent.com/mkdm54/fortofolio/main/public/sertifikat_memulai_pemrograman_dart.png",
+  },
 ];
 
 const CertificateSection = () => {
@@ -50,7 +58,7 @@ const CertificateSection = () => {
               {" "}
               {/* Increased min-height */}
               {/* Elemen "bayangan" */}
-              <div className="absolute top-2 left-2 w-full h-full bg-background rounded-none border-4 border-portfolio-black"></div>
+              <div className="absolute top-2 left-2 w-full h-full bg-background rounded-none border-4 border-portfolio-black"></div>{" "}
               {/* Kartu sertifikat yang sebenarnya */}
               <Card
                 className="absolute top-0 left-0 w-full h-full border-4 border-portfolio-black rounded-none overflow-hidden bg-portfolio-teal
