@@ -2,11 +2,37 @@ import type { VercelRequest, VercelResponse } from '@vercel/node';
 import fetch from 'node-fetch';
 
 export default async function handler(request: VercelRequest, response: VercelResponse) {
-  const { path } = request.query;
-  const targetPath = Array.isArray(path) ? path.join('/') : path;
+  const { service, robloxPath } = request.query;
 
-  const robloxApiBaseUrl = 'https://catalog.roblox.com';
-  const fullRobloxUrl = `${robloxApiBaseUrl}/${targetPath}${request.url?.includes('?') ? '?' + request.url.split('?')[1] : ''}`;
+  if (!service || !robloxPath) {
+    return response.status(400).json({ error: 'Service and robloxPath are required query parameters.' });
+  }
+
+  let robloxApiBaseUrl: string;
+  let useBufferForResponse = false;
+
+  switch (service) {
+    case 'users':
+      robloxApiBaseUrl = 'https://users.roblox.com';
+      break;
+    case 'thumbnails':
+      robloxApiBaseUrl = 'https://thumbnails.roblox.com';
+      useBufferForResponse = true; // Thumbnails API returns image data
+      break;
+    case 'friends':
+      robloxApiBaseUrl = 'https://friends.roblox.com';
+      break;
+    case 'avatar':
+      robloxApiBaseUrl = 'https://avatar.roblox.com';
+      break;
+    case 'catalog':
+      robloxApiBaseUrl = 'https://catalog.roblox.com';
+      break;
+    default:
+      return response.status(400).json({ error: `Unsupported Roblox API service: ${service}` });
+  }
+
+  const fullRobloxUrl = `${robloxApiBaseUrl}/${robloxPath}${request.url?.includes('?') ? '&' + request.url.split('?')[1].split('&').filter(param => !param.startsWith('service=') && !param.startsWith('robloxPath=')).join('&') : ''}`;
 
   try {
     const headersToForward: Record<string, string> = {};
@@ -38,9 +64,13 @@ export default async function handler(request: VercelRequest, response: VercelRe
       response.setHeader('x-csrf-token', csrfToken);
     }
 
-    // Mengubah dari .buffer() menjadi .json() karena API ini mengembalikan JSON
-    const data = await robloxResponse.json();
-    response.status(robloxResponse.status).json(data); // Menggunakan .json() untuk mengirim respons JSON
+    if (useBufferForResponse) {
+      const data = await robloxResponse.buffer();
+      response.status(robloxResponse.status).send(data);
+    } else {
+      const data = await robloxResponse.json();
+      response.status(robloxResponse.status).json(data);
+    }
 
   } catch (error) {
     console.error(`Error proxying request to ${fullRobloxUrl}:`, error);

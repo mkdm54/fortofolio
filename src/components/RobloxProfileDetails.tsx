@@ -61,21 +61,16 @@ const RobloxProfileDetails: React.FC<RobloxProfileDetailsProps> = ({
       try {
         // Determine the base URL for Roblox API calls
         const isProduction = import.meta.env.PROD;
-        const userApiBase = isProduction
-          ? `/api/roblox/users`
-          : `/roblox-api/v1/users`;
-        const thumbnailsApiBase = isProduction
-          ? `/api/roblox/thumbnails`
-          : `/roblox-thumbnails-api/v1/users`;
-        const friendsApiBase = isProduction
-          ? `/api/roblox/friends`
-          : `/roblox-friends-api/v1/users`;
-        const catalogApiBase = isProduction
-          ? `/api/roblox/catalog`
-          : `/roblox-catalog-api/v1/catalog`;
+        const proxyApiBase = isProduction
+          ? `/api/roblox/proxy`
+          : `/roblox-api/v1/users`; // For local dev, still use direct proxy for users
 
         // Fetch user data
-        const userResponse = await fetch(`${userApiBase}/${userId}`);
+        const userResponse = await fetch(
+          isProduction
+            ? `${proxyApiBase}?service=users&robloxPath=v1/users/${userId}`
+            : `${proxyApiBase}/${userId}`
+        );
         if (!userResponse.ok) {
           throw new Error(
             `Failed to fetch user data: ${userResponse.statusText}`
@@ -85,9 +80,10 @@ const RobloxProfileDetails: React.FC<RobloxProfileDetailsProps> = ({
         setUserData(userData);
 
         // Fetch avatar data
-        // NOTE: For production, you'll need to create a separate Vercel Serverless Function for thumbnails
         const avatarResponse = await fetch(
-          `${thumbnailsApiBase}/avatar-headshot?userIds=${userId}&size=150x150&format=Png&isCircular=true`
+          isProduction
+            ? `${proxyApiBase}?service=thumbnails&robloxPath=v1/users/avatar-headshot?userIds=${userId}&size=150x150&format=Png&isCircular=true`
+            : `/roblox-thumbnails-api/v1/users/avatar-headshot?userIds=${userId}&size=150x150&format=Png&isCircular=true`
         );
         if (!avatarResponse.ok) {
           throw new Error(
@@ -102,9 +98,10 @@ const RobloxProfileDetails: React.FC<RobloxProfileDetailsProps> = ({
         }
 
         // Fetch followers count
-        // NOTE: For production, you'll need to create a separate Vercel Serverless Function for friends counts
         const followersResponse = await fetch(
-          `${friendsApiBase}/${userId}/followers/count`
+          isProduction
+            ? `${proxyApiBase}?service=friends&robloxPath=v1/users/${userId}/followers/count`
+            : `/roblox-friends-api/v1/users/${userId}/followers/count`
         );
         if (!followersResponse.ok) {
           throw new Error(
@@ -115,7 +112,9 @@ const RobloxProfileDetails: React.FC<RobloxProfileDetailsProps> = ({
 
         // Fetch followings count
         const followingsResponse = await fetch(
-          `${friendsApiBase}/${userId}/followings/count`
+          isProduction
+            ? `${proxyApiBase}?service=friends&robloxPath=v1/users/${userId}/followings/count`
+            : `/roblox-friends-api/v1/users/${userId}/followings/count`
         );
         if (!followingsResponse.ok) {
           throw new Error(
@@ -126,7 +125,9 @@ const RobloxProfileDetails: React.FC<RobloxProfileDetailsProps> = ({
 
         // Fetch friends count
         const friendsResponse = await fetch(
-          `${friendsApiBase}/${userId}/friends/count`
+          isProduction
+            ? `${proxyApiBase}?service=friends&robloxPath=v1/users/${userId}/friends/count`
+            : `/roblox-friends-api/v1/users/${userId}/friends/count`
         );
         if (!friendsResponse.ok) {
           throw new Error(
