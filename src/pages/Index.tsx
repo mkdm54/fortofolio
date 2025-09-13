@@ -6,9 +6,21 @@ import SocialMediaSection from "@/components/SocialMediaSection";
 import ContactSection from "@/components/ContactSection";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import RobloxProfileCard from "@/components/RobloxProfileCard"; // Import the new component
+import RobloxProfileOverviewCard from "@/components/RobloxProfileOverviewCard"; // Import the new combined component
+import AOS from "aos";
+import "aos/dist/aos.css"; // Import CSS AOS
+
+import { useEffect } from "react"; // Import useEffect
+import { ThemeProvider } from "@/components/ThemeProvider"; // Import ThemeProvider
 
 const Index = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // Durasi animasi dalam ms
+      once:false, // Animasi hanya berjalan sekali saat elemen masuk tampilan
+    });
+  }, []);
+
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <Navbar />
@@ -28,18 +40,18 @@ const Index = () => {
         <div data-aos="fade-up">
           <SocialMediaSection />
         </div>
-        {/* New Roblox Profile Section */}
+        {/* Roblox Profile Section - Now using the combined card */}
         <section className="w-full bg-background py-16 md:py-20 lg:py-24">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-bold text-center text-portfolio-black mb-12">
               My Roblox Profile
             </h2>
             <div className="flex justify-center">
-              <RobloxProfileCard userId={7466077465} />
+              <RobloxProfileOverviewCard userId={7466077465} />
             </div>
           </div>
         </section>
-        {/* End New Roblox Profile Section */}
+        {/* End Roblox Profile Section */}
         <div id="contact" data-aos="fade-up">
           <ContactSection />
         </div>
