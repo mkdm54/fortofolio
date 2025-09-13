@@ -2,6 +2,16 @@ import type { VercelRequest, VercelResponse } from '@vercel/node';
 import fetch from 'node-fetch';
 
 export default async function handler(request: VercelRequest, response: VercelResponse) {
+  // Set CORS headers for all responses
+  response.setHeader('Access-Control-Allow-Origin', 'https://just-about-me.vercel.app'); // Mengganti '*' dengan domain Vercel spesifik Anda
+  response.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  response.setHeader('Access-Control-Allow-Headers', 'X-CSRF-TOKEN, Content-Type, Authorization');
+
+  // Handle preflight OPTIONS request
+  if (request.method === 'OPTIONS') {
+    return response.status(204).end();
+  }
+
   const { service, robloxPath } = request.query;
 
   if (!service || !robloxPath) {
@@ -32,12 +42,19 @@ export default async function handler(request: VercelRequest, response: VercelRe
       return response.status(400).json({ error: `Unsupported Roblox API service: ${service}` });
   }
 
-  const fullRobloxUrl = `${robloxApiBaseUrl}/${robloxPath}${request.url?.includes('?') ? '&' + request.url.split('?')[1].split('&').filter(param => !param.startsWith('service=') && !param.startsWith('robloxPath=')).join('&') : ''}`;
+  // Construct the full Roblox URL, filtering out proxy-specific query parameters
+  const queryParams = Object.keys(request.query)
+    .filter(key => key !== 'service' && key !== 'robloxPath')
+    .map(key => `${key}=${request.query[key]}`)
+    .join('&');
+
+  const fullRobloxUrl = `${robloxApiBaseUrl}/${robloxPath}${queryParams ? `?${queryParams}` : ''}`;
 
   try {
     const headersToForward: Record<string, string> = {};
     for (const key in request.headers) {
-      if (!['host', 'connection', 'content-length', 'x-vercel-forwarded-for', 'x-real-ip', 'x-forwarded-for', 'x-forwarded-host', 'x-forwarded-proto', 'x-vercel-deployment-url'].includes(key.toLowerCase())) {
+      // Filter out headers that should not be forwarded or are handled by Vercel
+      if (!['host', 'connection', 'content-length', 'x-vercel-forwarded-for', 'x-real-ip', 'x-forwarded-for', 'x-forwarded-host', 'x-forwarded-proto', 'x-vercel-deployment-url', 'origin', 'referer'].includes(key.toLowerCase())) {
         const headerValue = request.headers[key];
         if (typeof headerValue === 'string') {
           headersToForward[key] = headerValue;
@@ -54,7 +71,8 @@ export default async function handler(request: VercelRequest, response: VercelRe
     });
 
     robloxResponse.headers.forEach((value, name) => {
-      if (!['transfer-encoding', 'content-encoding', 'set-cookie'].includes(name.toLowerCase())) {
+      // Filter out headers that might cause issues or are handled by Vercel/CORS
+      if (!['transfer-encoding', 'content-encoding', 'set-cookie', 'access-control-allow-origin', 'access-control-allow-methods', 'access-control-allow-headers'].includes(name.toLowerCase())) {
         response.setHeader(name, value);
       }
     });
