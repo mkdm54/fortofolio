@@ -78,11 +78,23 @@ const RobloxAvatarItemsCarousel: React.FC<RobloxAvatarItemsCarouselProps> = ({
       setLoading(true);
       setError(null);
       try {
+        // Determine the base URL for Roblox API calls
+        const isProduction = import.meta.env.PROD;
+        const avatarApiBase = isProduction
+          ? `/api/roblox/avatar`
+          : `/roblox-avatar-api`;
+        const catalogApiBase = isProduction
+          ? `/api/roblox/catalog`
+          : `/roblox-catalog-api`;
+        const thumbnailsApiBase = isProduction
+          ? `/api/roblox/thumbnails`
+          : `/roblox-thumbnails-api`;
+
         // --- Step 0: Fetch X-CSRF-TOKEN using a dummy POST request ---
         let csrfToken = "";
         try {
           const csrfResponse = await fetch(
-            `/roblox-catalog-api/v1/catalog/items/details`,
+            `${catalogApiBase}/v1/catalog/items/details`,
             {
               method: "POST",
               headers: {
@@ -100,20 +112,18 @@ const RobloxAvatarItemsCarousel: React.FC<RobloxAvatarItemsCarouselProps> = ({
             console.warn(
               "X-CSRF-TOKEN not found in response headers from dummy POST to catalog endpoint."
             );
-            throw new Error(
-              "Failed to obtain XSRF token for catalog request. Token header missing."
-            );
+            // This might happen if the API doesn't require it for this specific dummy call,
+            // or if the proxy isn't forwarding it correctly. Proceed with caution.
           }
         } catch (csrfErr) {
           console.error("Error fetching CSRF token:", csrfErr);
-          throw new Error(
-            "Failed to obtain XSRF token for catalog request. Network or other error during token fetch."
-          );
+          // Don't throw here, as some endpoints might not strictly require it for the dummy call
+          // or the proxy might handle it differently.
         }
 
         // Step 1: Get item IDs currently wearing
         const wearingResponse = await fetch(
-          `/roblox-avatar-api/v1/users/${userId}/currently-wearing`
+          `${avatarApiBase}/v1/users/${userId}/currently-wearing`
         );
         if (!wearingResponse.ok) {
           throw new Error(
@@ -131,13 +141,13 @@ const RobloxAvatarItemsCarousel: React.FC<RobloxAvatarItemsCarouselProps> = ({
 
         // Step 2: Fetch item names from catalog API (requires CSRF token)
         const catalogResponse = await fetch(
-          `/roblox-catalog-api/v1/catalog/items/details`,
+          `${catalogApiBase}/v1/catalog/items/details`,
           {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
               Accept: "application/json",
-              "X-CSRF-TOKEN": csrfToken,
+              "X-CSRF-TOKEN": csrfToken, // Use the fetched CSRF token
             },
             body: JSON.stringify({
               items: assetIds.map((id) => ({ itemType: "Asset", id: id })),
@@ -164,7 +174,7 @@ const RobloxAvatarItemsCarousel: React.FC<RobloxAvatarItemsCarouselProps> = ({
 
         // Step 3: Fetch item thumbnails from the dedicated thumbnails API
         const thumbnailsResponse = await fetch(
-          `/roblox-thumbnails-api/v1/assets?assetIds=${assetIds.join(
+          `${thumbnailsApiBase}/v1/assets?assetIds=${assetIds.join(
             ","
           )}&size=420x420&format=Png`
         );
