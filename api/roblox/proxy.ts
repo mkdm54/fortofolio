@@ -9,7 +9,7 @@ export default async function handler(
   response.setHeader(
     "Access-Control-Allow-Origin",
     "https://just-about-me.vercel.app"
-  ); // Mengganti '*' dengan domain Vercel spesifik Anda
+  );
   response.setHeader(
     "Access-Control-Allow-Methods",
     "GET, POST, PUT, DELETE, OPTIONS"
@@ -108,6 +108,9 @@ export default async function handler(
       body: requestBody,
     });
 
+    // Forward Roblox's status code
+    response.status(robloxResponse.status);
+
     robloxResponse.headers.forEach((value, name) => {
       // Filter out headers that might cause issues or are handled by Vercel/CORS
       if (
@@ -131,17 +134,36 @@ export default async function handler(
 
     if (useBufferForResponse) {
       const data = await robloxResponse.buffer();
-      response.status(robloxResponse.status).send(data);
+      response.send(data);
     } else {
-      const data = await robloxResponse.json();
-      response.status(robloxResponse.status).json(data);
+      const contentType = robloxResponse.headers.get("content-type");
+      if (contentType && contentType.includes("application/json")) {
+        try {
+          const data = await robloxResponse.json();
+          response.json(data);
+        } catch (jsonError) {
+          console.error(
+            `Failed to parse Roblox response as JSON for ${fullRobloxUrl} (Status: ${robloxResponse.status}):`,
+            jsonError
+          );
+          const textData = await robloxResponse.text();
+          response.send(textData); // Send raw text if JSON parsing fails
+        }
+      } else {
+        const textData = await robloxResponse.text();
+        response.send(textData); // Send as text if not JSON
+      }
     }
   } catch (error) {
-    console.error(`Error proxying request to ${fullRobloxUrl}:`, error);
-    response
-      .status(500)
-      .json({
-        error: "Internal server error while proxying Roblox API request.",
-      });
+    console.error(`Unhandled error in proxy for ${fullRobloxUrl}:`, error);
+    // If an error occurs before we can get a status from Roblox, default to 500
+    if (!response.headersSent) {
+      response
+        .status(500)
+        .json({
+          error: "Internal server error while proxying Roblox API request.",
+          details: (error as Error).message,
+        });
+    }
   }
 }
