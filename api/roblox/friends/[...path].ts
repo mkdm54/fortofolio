@@ -38,8 +38,9 @@ export default async function handler(request: VercelRequest, response: VercelRe
       response.setHeader('x-csrf-token', csrfToken);
     }
 
-    const data = await robloxResponse.buffer();
-    response.status(robloxResponse.status).send(data);
+    // Mengubah dari .buffer() menjadi .json() karena API ini mengembalikan JSON
+    const data = await robloxResponse.json(); 
+    response.status(robloxResponse.status).json(data); // Menggunakan .json() untuk mengirim respons JSON
 
   } catch (error) {
     console.error(`Error proxying request to ${fullRobloxUrl}:`, error);
