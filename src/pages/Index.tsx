@@ -6,6 +6,7 @@ import SocialMediaSection from "@/components/SocialMediaSection";
 import ContactSection from "@/components/ContactSection";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import RobloxProfileCard from "@/components/RobloxProfileCard"; // Import the new component
 
 const Index = () => {
   return (
@@ -27,6 +28,18 @@ const Index = () => {
         <div data-aos="fade-up">
           <SocialMediaSection />
         </div>
+        {/* New Roblox Profile Section */}
+        <section className="w-full bg-background py-16 md:py-20 lg:py-24">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-center text-portfolio-black mb-12">
+              My Roblox Profile
+            </h2>
+            <div className="flex justify-center">
+              <RobloxProfileCard userId={7466077465} />
+            </div>
+          </div>
+        </section>
+        {/* End New Roblox Profile Section */}
         <div id="contact" data-aos="fade-up">
           <ContactSection />
         </div>
