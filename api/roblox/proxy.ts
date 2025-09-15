@@ -6,7 +6,7 @@ export default async function handler(request: VercelRequest, response: VercelRe
   response.setHeader('Access-Control-Allow-Origin', 'https://just-about-me.vercel.app');
   response.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
   response.setHeader('Access-Control-Allow-Headers', 'X-CSRF-TOKEN, Content-Type, Authorization');
-  response.setHeader('Access-Control-Allow-Credentials', 'true'); // Penting untuk cookie/CSRF
+  response.setHeader('Access-Control-Allow-Credentials', 'true');
 
   // Handle preflight OPTIONS request
   if (request.method === 'OPTIONS') {

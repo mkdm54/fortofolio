@@ -82,7 +82,7 @@ const RobloxAvatarItemsCarousel: React.FC<RobloxAvatarItemsCarouselProps> = ({
         const isProduction = import.meta.env.PROD;
         const proxyApiBase = isProduction
           ? `/api/roblox/proxy`
-          : `/roblox-avatar-api`; // For local dev, still use direct proxy for avatar
+          : `/roblox-avatar-api`; //? ubah nanti ygy
 
         // --- Step 0: Fetch X-CSRF-TOKEN using a dummy POST request ---
         let csrfToken = "";
