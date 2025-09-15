@@ -2,7 +2,7 @@ import type { VercelRequest, VercelResponse } from '@vercel/node';
 import fetch from 'node-fetch';
 
 export default async function handler(request: VercelRequest, response: VercelResponse) {
-  console.log('Roblox proxy function invoked.'); // Added for debugging
+  console.log('Roblox proxy function invoked.');
 
   // Set CORS headers for all responses
   response.setHeader('Access-Control-Allow-Origin', 'https://just-about-me.vercel.app');
@@ -23,7 +23,7 @@ export default async function handler(request: VercelRequest, response: VercelRe
   }
 
   let robloxApiBaseUrl: string;
-  let useBufferForResponse = false;
+  let useBufferForResponse = false; // Default to false
 
   switch (service) {
     case 'users':
@@ -38,6 +38,8 @@ export default async function handler(request: VercelRequest, response: VercelRe
       break;
     case 'avatar':
       robloxApiBaseUrl = 'https://avatar.roblox.com';
+      // Explicitly set useBufferForResponse to false for avatar, as it's expected to be JSON
+      useBufferForResponse = false;
       break;
     case 'catalog':
       robloxApiBaseUrl = 'https://catalog.roblox.com';
@@ -69,6 +71,13 @@ export default async function handler(request: VercelRequest, response: VercelRe
       }
     }
 
+    // Add a default User-Agent if not present, or ensure it's forwarded
+    if (!headersToForward['user-agent'] && request.headers['user-agent']) {
+        headersToForward['user-agent'] = request.headers['user-agent'] as string;
+    } else if (!headersToForward['user-agent']) {
+        headersToForward['user-agent'] = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'; // Generic user agent
+    }
+
     // Only include body for POST/PUT requests if request.body exists
     const requestBody = (request.method === 'POST' || request.method === 'PUT') && request.body
       ? JSON.stringify(request.body)
@@ -76,16 +85,16 @@ export default async function handler(request: VercelRequest, response: VercelRe
 
     // Log outgoing request details
     console.log(`Proxying ${request.method} request to: ${fullRobloxUrl}`);
-    console.log('Request Headers:', headersToForward);
+    console.log('Request Headers (to Roblox):', headersToForward);
     if (requestBody) {
-      console.log('Request Body:', requestBody);
+      console.log('Request Body (to Roblox):', requestBody);
     }
 
     const robloxResponse = await fetch(fullRobloxUrl, {
       method: request.method,
       headers: headersToForward,
       body: requestBody,
-      redirect: 'manual', // Mencegah node-fetch mengikuti redirect secara otomatis
+      // Removed redirect: 'manual' to allow node-fetch to follow redirects by default
     });
 
     // Log incoming response details from Roblox
