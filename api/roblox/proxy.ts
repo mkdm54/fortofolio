@@ -2,6 +2,8 @@ import type { VercelRequest, VercelResponse } from '@vercel/node';
 import fetch from 'node-fetch';
 
 export default async function handler(request: VercelRequest, response: VercelResponse) {
+  console.log('Roblox proxy function invoked.'); // Added for debugging
+
   // Set CORS headers for all responses
   response.setHeader('Access-Control-Allow-Origin', 'https://just-about-me.vercel.app');
   response.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
